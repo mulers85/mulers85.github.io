@@ -4,53 +4,205 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mulugeta Tesfay Beyene — QA Tester</title>
+
   <style>
+    :root {
+      --bg: #0d1117;
+      --bg-soft: #161b22;
+      --bg-card: #161b22;
+      --border: #30363d;
+      --text: #c9d1d9;
+      --muted: #8b949e;
+      --accent: #58a6ff;
+      --accent-strong: #1f6feb;
+      --success: #238636;
+      --button-text: #ffffff;
+    }
+
+    body.light-mode {
+      --bg: #f4f4f5;
+      --bg-soft: #ffffff;
+      --bg-card: #ffffff;
+      --border: #e4e4e7;
+      --text: #111827;
+      --muted: #4b5563;
+      --accent: #2563eb;
+      --accent-strong: #1d4ed8;
+      --success: #16a34a;
+      --button-text: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #0d1117;
-      color: #c9d1d9;
+      font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
       line-height: 1.6;
     }
 
+    /* HEADER + NAVBAR */
     header {
-      padding: 20px;
-      background-color: #0d1117;
-      border-bottom: 1px solid #30363d;
-      text-align: center;
-      font-size: 20px;
-      font-weight: bold;
-      color: #58a6ff;
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background-color: color-mix(in srgb, var(--bg) 88%, #000 12%);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(10px);
     }
 
-    nav {
-      text-align: center;
-      margin-top: 10px;
+    .header-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: 0.3em;
+      color: var(--accent);
+      text-transform: uppercase;
     }
 
     nav a {
-      color: #58a6ff;
-      margin: 0 15px;
+      color: var(--accent);
+      margin-left: 14px;
       text-decoration: none;
-      font-size: 16px;
+      font-size: 14px;
     }
 
     nav a:hover {
       text-decoration: underline;
     }
 
-    .container {
-      max-width: 900px;
-      margin: auto;
-      padding: 20px;
+    .theme-toggle {
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--bg-soft);
+      color: var(--text);
+      padding: 5px 10px;
+      font-size: 13px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
     }
 
-    .hero-card {
-      background-color: #161b22;
-      padding: 30px;
-      border-radius: 10px;
-      margin-bottom: 30px;
-      box-shadow: 0 0 10px #000;
+    /* LAYOUT */
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px 16px 40px;
+    }
+
+    /* HERO */
+    .hero {
+      display: grid;
+      grid-template-columns: 1.2fr;
+      gap: 24px;
+      margin-top: 20px;
+      margin-bottom: 32px;
+    }
+
+    @media (min-width: 768px) {
+      .hero {
+        grid-template-columns: 1.3fr 0.9fr;
+        align-items: center;
+      }
+    }
+
+    .hero-left {
+      background-color: var(--bg-card);
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      padding: 22px 18px 20px;
+      box-shadow: 0 18px 40px rgba(0,0,0,0.55);
+      animation: fadeInUp 0.5s ease-out both;
+    }
+
+    .hero-right {
+      background-color: var(--bg-card);
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      padding: 18px 16px 16px;
+      box-shadow: 0 18px 40px rgba(0,0,0,0.45);
+      animation: fadeInUp 0.6s ease-out both;
+    }
+
+    h1 {
+      margin: 0 0 6px;
+      font-size: 26px;
+    }
+
+    .subtitle {
+      margin: 0 0 14px;
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--accent);
+    }
+
+    .hero-text {
+      font-size: 15px;
+      margin-bottom: 16px;
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    a.button {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background-color: var(--success);
+      padding: 9px 16px;
+      border-radius: 999px;
+      color: var(--button-text);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+      border: 1px solid var(--success);
+      transition: transform 0.12s ease, box-shadow 0.12s ease, background-color 0.12s ease;
+    }
+
+    a.button.secondary {
+      background-color: var(--bg-soft);
+      border-color: var(--border);
+      color: var(--text);
+    }
+
+    a.button.cv {
+      background-color: var(--accent-strong);
+      border-color: var(--accent-strong);
+    }
+
+    a.button:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.35);
+    }
+
+    .label {
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .hero-right .label {
+      margin-top: 0;
     }
 
     .tag-list {
@@ -58,167 +210,412 @@
       padding: 0;
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
+      gap: 8px;
+      margin: 6px 0 0;
     }
 
     .tag {
-      background-color: #21262d;
-      padding: 5px 12px;
-      border-radius: 6px;
+      background-color: var(--bg-soft);
+      padding: 5px 11px;
+      border-radius: 999px;
+      font-size: 12px;
+      color: var(--accent);
+      border: 1px solid var(--border);
+    }
+
+    /* PROFILE PICTURE */
+    .profile-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .profile-pic {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--accent);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+      margin-bottom: 10px;
+      background-color: #020617;
+    }
+
+    .profile-name {
+      font-weight: 600;
+      font-size: 15px;
+    }
+
+    /* SECTIONS */
+    section {
+      margin-top: 32px;
+      animation: fadeInUp 0.5s ease-out both;
+    }
+
+    section h2 {
+      font-size: 20px;
+      margin: 0 0 8px;
+      color: var(--accent);
+    }
+
+    section p, section li {
+      font-size: 15px;
+    }
+
+    section ul {
+      padding-left: 20px;
+      margin-top: 4px;
+    }
+
+    /* PROJECT CARDS */
+    .projects {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      margin-top: 8px;
+    }
+
+    @media (min-width: 700px) {
+      .projects {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .project-card {
+      background-color: var(--bg-card);
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      padding: 14px 14px 12px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+    }
+
+    .project-title {
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .project-meta {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    /* TIMELINE */
+    .timeline {
+      list-style: none;
+      padding-left: 0;
+      border-left: 2px solid var(--border);
+      margin-top: 8px;
+    }
+
+    .timeline li {
+      position: relative;
+      padding-left: 14px;
+      margin-bottom: 10px;
+    }
+
+    .timeline li::before {
+      content: "";
+      position: absolute;
+      left: -6px;
+      top: 6px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: var(--accent);
+    }
+
+    .timeline-time {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    .timeline-desc {
       font-size: 14px;
-      color: #58a6ff;
-      border: 1px solid #30363d;
     }
 
-    h1 {
-      margin-top: 0;
-    }
-
-    h2 {
-      color: #58a6ff;
-      margin-top: 40px;
-    }
-
+    /* FOOTER */
     footer {
       text-align: center;
-      padding: 20px;
-      margin-top: 40px;
-      color: #8b949e;
-      border-top: 1px solid #30363d;
+      padding: 18px 16px 22px;
+      margin-top: 32px;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+      font-size: 12px;
     }
 
-    a.button {
-      display: inline-block;
-      background-color: #238636;
-      padding: 10px 18px;
-      border-radius: 6px;
-      color: white;
+    footer a {
+      color: var(--accent);
       text-decoration: none;
-      margin-right: 10px;
-      margin-bottom: 8px;
-      font-size: 14px;
-      font-weight: bold;
-      border: 1px solid #238636;
-      transition: transform 0.12s ease, box-shadow 0.12s ease, background-color 0.12s ease;
     }
 
-    a.button.secondary {
-      background-color: #30363d;
-      border-color: #30363d;
-      color: #c9d1d9;
-    }
-
-    a.button.cv {
-      background-color: #1f6feb;
-      border-color: #1f6feb;
-    }
-
-    a.button:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
-      background-color: #2ea043;
-    }
-
-    a.button.secondary:hover {
-      background-color: #363b42;
-    }
-
-    a.button.cv:hover {
-      background-color: #2563eb;
+    /* ANIMATIONS */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(8px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
   </style>
 </head>
 
 <body>
-  <header>M T B &nbsp; Q A</header>
+  <header>
+    <div class="header-inner">
+      <div class="brand">MTB QA</div>
 
-  <nav>
-    <a href="#about">About</a>
-    <a href="#skills">Skills</a>
-    <a href="#practice">Practice</a>
-    <a href="#contact">Contact</a>
-  </nav>
+      <div style="display:flex; align-items:center; gap:16px;">
+        <nav>
+          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#practice">Practice</a>
+          <a href="#experience">Experience</a>
+          <a href="#contact">Contact</a>
+        </nav>
 
-  <div class="container">
-
-    <!-- HERO SECTION -->
-    <div class="hero-card">
-      <h1>Mulugeta Tesfay Beyene</h1>
-      <h3 style="color:#58a6ff;">Junior QA Tester</h3>
-
-      <p>
-        I test web and mobile applications with a focus on clear test cases,
-        detailed bug reports, and improving user experience.
-      </p>
-
-      <!-- Buttons row -->
-      <a class="button" href="mailto:mulers85@gmail.com">Contact Me</a>
-      <a class="button secondary" href="https://github.com/mulers85" target="_blank">View GitHub</a>
-      <a class="button cv" href="Mulugeta_Tesfay_Beyene_CV.pdf" target="_blank">Download CV</a>
-
-      <br><br>
-
-      <strong>Languages:</strong> English, Hebrew, Tigrigna, Amharic
-
-      <p><strong>Tools I use:</strong></p>
-      <ul class="tag-list">
-        <li class="tag">Jira</li>
-        <li class="tag">Xray</li>
-        <li class="tag">GitHub</li>
-        <li class="tag">SQL</li>
-        <li class="tag">Postman</li>
-        <li class="tag">Manual Testing</li>
-      </ul>
+        <button class="theme-toggle" id="themeToggle" type="button">
+          <span id="themeIcon">🌙</span>
+          <span id="themeLabel">Dark</span>
+        </button>
+      </div>
     </div>
+  </header>
 
-    <!-- ABOUT ME -->
-    <h2 id="about">About Me</h2>
-    <p>
-      I am a motivated Junior QA Tester with a strong passion for finding issues that truly improve
-      the user experience. I enjoy building clean, structured test cases, analyzing real user flows,
-      and reporting bugs with clear steps, expected results, and evidence.
-    </p>
+  <main class="container">
 
-    <p>
-      My current learning journey includes expanding my skills in API testing, SQL data validation,
-      and preparing to move toward automation after building a strong manual testing foundation.
-      I push myself to improve daily by practicing, exploring tools, and learning common QA processes.
-    </p>
+    <!-- HERO -->
+    <section class="hero" id="top">
+      <div class="hero-left">
+        <h1>Mulugeta Tesfay Beyene</h1>
+        <div class="subtitle">Junior QA Tester</div>
 
-    <p>
-      I am detail-oriented, fast-learning, and highly dedicated — always looking for ways to help build
-      better, cleaner, more stable applications.
-    </p>
+        <p class="hero-text">
+          I test web and mobile applications with a focus on clear test cases,
+          detailed bug reports, and improving user experience.
+        </p>
+
+        <div class="button-row">
+          <a class="button" href="mailto:mulers85@gmail.com">
+            ✉️ <span>Contact Me</span>
+          </a>
+          <a class="button secondary" href="https://github.com/mulers85" target="_blank">
+            🐙 <span>View GitHub</span>
+          </a>
+          <a class="button cv" href="Mulugeta_Tesfay_Beyene_CV.pdf" target="_blank">
+            📄 <span>Download CV</span>
+          </a>
+        </div>
+
+        <div class="label">Languages</div>
+        <p>English, Hebrew, Tigrigna, Amharic</p>
+
+        <div class="label">Tools I use</div>
+        <ul class="tag-list">
+          <li class="tag">Jira</li>
+          <li class="tag">Xray</li>
+          <li class="tag">GitHub</li>
+          <li class="tag">SQL</li>
+          <li class="tag">Postman</li>
+          <li class="tag">Manual Testing</li>
+        </ul>
+      </div>
+
+      <div class="hero-right">
+        <div class="profile-wrapper">
+          <!-- Upload profile.jpg to your repo -->
+          <img src="profile.jpg" alt="Photo of Mulugeta Tesfay Beyene" class="profile-pic" />
+          <div class="profile-name">Mulugeta Tesfay Beyene</div>
+          <div style="font-size:13px; color:var(--muted);">Manual QA • Future automation</div>
+        </div>
+
+        <div class="label">Quick snapshot</div>
+        <p style="font-size:14px;">
+          Curious, detail-oriented QA tester who likes to break things in a smart way
+          and describe exactly how it happened.
+        </p>
+
+        <div class="label">Currently learning</div>
+        <ul style="margin-top:4px; padding-left:18px; font-size:14px;">
+          <li>Better test design (boundary, negative, exploratory)</li>
+          <li>Stronger SQL and API testing foundations</li>
+          <li>First steps into test automation (concepts, tools)</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <h2>About Me</h2>
+      <p>
+        I am a motivated Junior QA Tester with a strong passion for finding issues that really
+        affect users. I enjoy building clean, structured test cases, thinking through real user
+        flows, and reporting bugs with clear steps, expected vs. actual results, and evidence.
+      </p>
+      <p>
+        I’m always asking “what happens if the user does this…?” and trying different paths to
+        uncover edge cases. I like when my bug reports make a developer say: “Nice catch.”
+      </p>
+      <p>
+        My long-term goal is to move from strong manual testing into automation, while keeping
+        the same mindset: protect the user, protect the product, and give the team clear
+        information so they can make better decisions.
+      </p>
+    </section>
 
     <!-- SKILLS -->
-    <h2 id="skills">Skills</h2>
-    <ul>
-      <li>Designing and executing manual test cases</li>
-      <li>Bug reporting with clear steps, results, and expectations</li>
-      <li>Using Jira + Xray for test management</li>
-      <li>Basic SQL for data checks</li>
-      <li>Checking APIs with Postman (basic)</li>
-      <li>UI + functional testing for mobile & web applications</li>
-    </ul>
+    <section id="skills">
+      <h2>Skills</h2>
+      <p><strong>Testing & QA</strong></p>
+      <ul>
+        <li>Designing and executing manual test cases from requirements or user stories.</li>
+        <li>Exploratory testing to discover unexpected issues and edge cases.</li>
+        <li>Bug reporting with clear reproduction steps and expected vs. actual results.</li>
+        <li>Basic regression testing after fixes to confirm stability.</li>
+      </ul>
 
-    <!-- PRACTICE -->
-    <h2 id="practice">Recent QA Practice</h2>
-    <ul>
-      <li>Tested a calculator web app (functional + edge cases)</li>
-      <li>Performed UI/UX testing on mobile and web apps</li>
-      <li>Used GitHub to track and organize QA practice projects</li>
-    </ul>
+      <p><strong>Tools & Technology</strong></p>
+      <ul>
+        <li><strong>Jira & Xray:</strong> tracking issues and organising test cases.</li>
+        <li><strong>GitHub:</strong> using issues and repos to track QA practice work.</li>
+        <li><strong>SQL (basic):</strong> simple SELECT queries to check data.</li>
+        <li><strong>Postman (basic):</strong> sending requests and reading responses for APIs.</li>
+      </ul>
+
+      <p><strong>Soft Skills</strong></p>
+      <ul>
+        <li>Clear written communication in English and Hebrew.</li>
+        <li>Curious, patient, and calm under pressure.</li>
+        <li>Self-learner, used to studying and practicing alone.</li>
+      </ul>
+    </section>
+
+    <!-- PRACTICE / PROJECTS -->
+    <section id="practice">
+      <h2>Practice & Projects</h2>
+      <p>
+        I practice QA by testing small apps and documenting everything as if I were in a real team.
+      </p>
+
+      <div class="projects">
+        <div class="project-card">
+          <div class="project-title">Calculator Web App Testing</div>
+          <div class="project-meta">Functional, boundary & negative tests</div>
+          <p style="font-size:14px;">
+            Designed test cases for normal operations (add, subtract, divide, multiply) and
+            edge cases like division by zero, long numbers, and invalid input.
+            Reported layout issues and unexpected behaviours.
+          </p>
+        </div>
+
+        <div class="project-card">
+          <div class="project-title">Mobile & Web UI Checks</div>
+          <div class="project-meta">UI / UX & flows</div>
+          <p style="font-size:14px;">
+            Practiced testing login, sign-up, forms, and navigation.
+            Focused on error messages, validation, and how the app feels to the user.
+          </p>
+        </div>
+
+        <div class="project-card">
+          <div class="project-title">GitHub QA Practice Space</div>
+          <div class="project-meta">Issues & documentation</div>
+          <p style="font-size:14px;">
+            Used GitHub issues and repositories to record bugs and test ideas so I can share
+            my QA thinking and progress with others.
+          </p>
+        </div>
+
+        <div class="project-card">
+          <div class="project-title">API & Data Experiments</div>
+          <div class="project-meta">Postman + SQL (basic)</div>
+          <p style="font-size:14px;">
+            Tried basic API calls in Postman and compared responses to data in a database using
+            simple SQL queries to understand the full flow.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE TIMELINE -->
+    <section id="experience">
+      <h2>Experience Timeline</h2>
+      <ul class="timeline">
+        <li>
+          <div class="timeline-time">2024 – Now</div>
+          <div class="timeline-desc">
+            Focused on QA learning, building manual testing skills, practicing with tools
+            like Jira, Xray, GitHub, SQL and Postman.
+          </div>
+        </li>
+        <li>
+          <div class="timeline-time">Before QA</div>
+          <div class="timeline-desc">
+            Worked outside of tech, building strong discipline, work ethic, and attention
+            to detail — skills I now bring into QA testing.
+          </div>
+        </li>
+      </ul>
+    </section>
 
     <!-- CONTACT -->
-    <h2 id="contact">Contact</h2>
-    <p>Email: <a href="mailto:mulers85@gmail.com" style="color:#58a6ff;">mulers85@gmail.com</a></p>
-    <p>GitHub: <a href="https://github.com/mulers85" style="color:#58a6ff;" target="_blank">github.com/mulers85</a></p>
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>If you’d like to talk about QA opportunities or projects:</p>
+      <p>✉️ Email:
+        <a href="mailto:mulers85@gmail.com" style="color:var(--accent); text-decoration:none;">
+          mulers85@gmail.com
+        </a>
+      </p>
+      <p>🐙 GitHub:
+        <a href="https://github.com/mulers85" target="_blank" style="color:var(--accent); text-decoration:none;">
+          github.com/mulers85
+        </a>
+      </p>
+    </section>
 
-  </div>
+  </main>
 
   <footer>
-    © 2025 Mulugeta Tesfay Beyene — Junior QA Tester
+    © <span id="year"></span> Mulugeta Tesfay Beyene — Junior QA Tester · Built with plain HTML, CSS & JS
   </footer>
 
+  <script>
+    // Year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Theme toggle with localStorage
+    const body = document.body;
+    const toggle = document.getElementById("themeToggle");
+    const icon = document.getElementById("themeIcon");
+    const label = document.getElementById("themeLabel");
+
+    function applyTheme(theme) {
+      if (theme === "light") {
+        body.classList.add("light-mode");
+        icon.textContent = "☀️";
+        label.textContent = "Light";
+      } else {
+        body.classList.remove("light-mode");
+        icon.textContent = "🌙";
+        label.textContent = "Dark";
+      }
+    }
+
+    const savedTheme = localStorage.getItem("mtb-theme") || "dark";
+    applyTheme(savedTheme);
+
+    toggle.addEventListener("click", () => {
+      const newTheme = body.classList.contains("light-mode") ? "dark" : "light";
+      localStorage.setItem("mtb-theme", newTheme);
+      applyTheme(newTheme);
+    });
+  </script>
 </body>
 </html>
