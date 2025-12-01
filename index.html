@@ -35,6 +35,10 @@
       font-size: 16px;
     }
 
+    nav a:hover {
+      text-decoration: underline;
+    }
+
     .container {
       max-width: 900px;
       margin: auto;
@@ -66,6 +70,10 @@
       border: 1px solid #30363d;
     }
 
+    h1 {
+      margin-top: 0;
+    }
+
     h2 {
       color: #58a6ff;
       margin-top: 40px;
@@ -87,12 +95,36 @@
       color: white;
       text-decoration: none;
       margin-right: 10px;
+      margin-bottom: 8px;
       font-size: 14px;
       font-weight: bold;
+      border: 1px solid #238636;
+      transition: transform 0.12s ease, box-shadow 0.12s ease, background-color 0.12s ease;
     }
 
     a.button.secondary {
       background-color: #30363d;
+      border-color: #30363d;
+      color: #c9d1d9;
+    }
+
+    a.button.cv {
+      background-color: #1f6feb;
+      border-color: #1f6feb;
+    }
+
+    a.button:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+      background-color: #2ea043;
+    }
+
+    a.button.secondary:hover {
+      background-color: #363b42;
+    }
+
+    a.button.cv:hover {
+      background-color: #2563eb;
     }
   </style>
 </head>
@@ -114,10 +146,15 @@
       <h1>Mulugeta Tesfay Beyene</h1>
       <h3 style="color:#58a6ff;">Junior QA Tester</h3>
 
-      <p>I test web and mobile applications with a focus on clear test cases, detailed bug reports, and improving user experience.</p>
+      <p>
+        I test web and mobile applications with a focus on clear test cases,
+        detailed bug reports, and improving user experience.
+      </p>
 
+      <!-- Buttons row -->
       <a class="button" href="mailto:mulers85@gmail.com">Contact Me</a>
       <a class="button secondary" href="https://github.com/mulers85" target="_blank">View GitHub</a>
+      <a class="button cv" href="Mulugeta_Tesfay_Beyene_CV.pdf" target="_blank">Download CV</a>
 
       <br><br>
 
@@ -137,20 +174,20 @@
     <!-- ABOUT ME -->
     <h2 id="about">About Me</h2>
     <p>
-      I am a motivated Junior QA Tester with a strong passion for finding issues that truly improve the user experience.
-      I enjoy building clean, structured test cases, analyzing real user flows, and reporting bugs with clear steps, 
-      expected results, and evidence. My focus is always on accuracy, clarity, and understanding how users think.
+      I am a motivated Junior QA Tester with a strong passion for finding issues that truly improve
+      the user experience. I enjoy building clean, structured test cases, analyzing real user flows,
+      and reporting bugs with clear steps, expected results, and evidence.
     </p>
 
     <p>
-      My current learning journey includes expanding my skills in API testing, SQL data validation, and preparing to move
-      into automation after building a strong manual testing foundation. I take testing seriously, and I push myself to 
-      improve daily by practicing, exploring tools, and learning industry workflows.
+      My current learning journey includes expanding my skills in API testing, SQL data validation,
+      and preparing to move toward automation after building a strong manual testing foundation.
+      I push myself to improve daily by practicing, exploring tools, and learning common QA processes.
     </p>
 
     <p>
-      I am detail-oriented, fast-learning, and highly dedicated — always looking for ways to help build better, cleaner, 
-      more stable applications.
+      I am detail-oriented, fast-learning, and highly dedicated — always looking for ways to help build
+      better, cleaner, more stable applications.
     </p>
 
     <!-- SKILLS -->
