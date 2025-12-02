@@ -1,188 +1,307 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mulugeta Tesfay Beiene — Junior QA Tester</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mulugeta Tesfay Beiene — Junior QA Tester</title>
 
-    <style>
+  <style>
+    :root {
+      --bg: #0b0f19;
+      --card: #111726;
+      --text: #cfd8e3;
+      --text-bright: #e6eef7;
+      --accent: #3f82ff;
+      --contact-green: #2ecc71;
+    }
 
-        :root {
-            --bg: #0b0f19;
-            --card: #111726;
-            --text: #cfd8e3;
-            --text-bright: #e6eef7;
-            --accent: #3f82ff;
-            --accent-soft: #1c3055;
-            --contact-green: #2ecc71;
-        }
+    * {
+      box-sizing: border-box;
+    }
 
-        body {
-            background-color: var(--bg);
-            color: var(--text);
-            margin: 0;
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-        }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+    }
 
-        nav {
-            padding: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 22px;
-        }
+    /* NAVBAR */
+    nav {
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 22px;
+    }
 
-        nav a {
-            color: var(--accent);
-            margin-left: 20px;
-            text-decoration: none;
-            font-weight: bold;
-        }
+    nav .logo {
+      font-size: 28px;
+      font-weight: bold;
+      color: var(--accent);
+      line-height: 1.1;
+    }
 
-        .container {
-            padding: 20px;
-            max-width: 900px;
-            margin: auto;
-        }
+    nav .links a {
+      color: var(--accent);
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 16px;
+    }
 
-        .card {
-            background: var(--card);
-            padding: 25px;
-            border-radius: 15px;
-            margin-bottom: 25px;
-        }
+    nav .links a:hover {
+      text-decoration: underline;
+    }
 
-        h1, h2 {
-            color: var(--text-bright);
-        }
+    /* LAYOUT */
+    .page {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 16px 40px 16px;
+    }
 
-        .profile-photo-wrapper {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            margin: 0 auto 20px auto;
-            position: relative;
-            overflow: hidden;
-            border: 5px solid var(--accent);
-        }
+    .card {
+      background: var(--card);
+      border-radius: 16px;
+      padding: 24px 20px;
+      margin-bottom: 24px;
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.65);
+    }
 
-        .profile-photo-wrapper img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+    h1,
+    h2 {
+      color: var(--text-bright);
+      margin-top: 0;
+    }
 
-        .buttons {
-            margin-top: 20px;
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
+    /* PROFILE PHOTO CIRCLE */
+    .profile-photo-wrapper {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      margin: 0 auto 20px auto;
+      border: 5px solid var(--accent);
+      overflow: hidden;
 
-        .button {
-            padding: 12px 20px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: bold;
-            color: white;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-        }
+      /* 👇 Try both file names – one of them WILL work */
+      background-image: url("IMG_3796.jpeg"), url("profile.jpg.PNG");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
 
-        .contact { background: var(--contact-green); }
-        .github { background: #444b5a; }
-        .cv { background: var(--accent); }
+    .hero {
+      text-align: center;
+    }
 
-        footer {
-            text-align: center;
-            padding: 25px;
-            color: #8892a3;
-            font-size: 14px;
-        }
+    .hero h1 {
+      font-size: 28px;
+      margin-bottom: 4px;
+    }
 
-    </style>
+    .hero h2 {
+      font-size: 18px;
+      color: var(--accent);
+      margin-top: 0;
+      margin-bottom: 12px;
+    }
 
+    .hero p {
+      margin: 0 auto;
+      max-width: 420px;
+      font-size: 15px;
+    }
+
+    .buttons {
+      margin-top: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 18px;
+      border-radius: 10px;
+      color: #ffffff;
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 14px;
+      border: none;
+      cursor: pointer;
+    }
+
+    .button.contact {
+      background: var(--contact-green);
+    }
+
+    .button.github {
+      background: #444b5a;
+    }
+
+    .button.cv {
+      background: var(--accent);
+    }
+
+    /* SECTIONS */
+    .section-title {
+      font-size: 22px;
+      margin-bottom: 6px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: #8892a3;
+      font-size: 14px;
+    }
+
+    @media (min-width: 768px) {
+      .hero h1 {
+        font-size: 32px;
+      }
+
+      .hero h2 {
+        font-size: 20px;
+      }
+    }
+  </style>
 </head>
 
 <body>
-
-    <!-- NAVIGATION -->
-    <nav>
-        <div style="font-size: 28px; font-weight: bold; color: var(--accent);">
-            M T B <br> Q A
-        </div>
-        <div>
-            <a href="#about">About</a>
-            <a href="#skills">Skills</a>
-            <a href="#practice">Practice</a>
-            <a href="#experience">Experience</a>
-            <a href="#contact">Contact</a>
-        </div>
-    </nav>
-
-    <div class="container">
-
-        <!-- PROFILE CARD -->
-        <div class="card" style="text-align: center;">
-
-            <div class="profile-photo-wrapper">
-                <img src="IMG_3796.jpeg" alt="Photo of Mulugeta Tesfay Beiene">
-            </div>
-
-            <h1>Mulugeta Tesfay Beiene</h1>
-            <h2 style="color: var(--accent); margin-top: -10px;">Junior QA Tester</h2>
-
-            <p>I test web and mobile applications with a focus on clear test cases, detailed bug reports, and improving user experience.</p>
-
-            <div class="buttons">
-                <a class="button contact" href="mailto:mulers85@gmail.com">📧 Contact Me</a>
-                <a class="button github" href="https://github.com/mulers85" target="_blank">🐙 View GitHub</a>
-                <a class="button cv" href="Mulugeta_Tesfay_Beiene_Resume.pdf" target="_blank">📄 Download CV</a>
-            </div>
-
-        </div>
-
-        <!-- ABOUT -->
-        <div id="about" class="card">
-            <h2>About Me</h2>
-            <p>
-                A short summary of who I am as a QA tester.
-            </p>
-            <p>
-                I am a manual QA tester focused on finding issues that matter for users.
-                I enjoy writing structured test cases, reporting clear bugs, and learning new tools.
-                My goal is to grow into QA automation after building a strong manual testing base.
-            </p>
-        </div>
-
-        <!-- EXPERIENCE -->
-        <div id="experience" class="card">
-            <h2>Experience Timeline</h2>
-
-            <p><strong>2024 — Now</strong><br>
-            Focused on QA learning, manual testing, using Jira, Xray, GitHub, SQL and Postman.</p>
-
-            <p><strong>Before QA (Current role)</strong><br>
-            Head of butcher department in a supermarket — managing daily operations, supervising staff, keeping quality and safety standards, and working under pressure. I bring this discipline and attention to detail into my QA work.</p>
-        </div>
-
-        <!-- CONTACT -->
-        <div id="contact" class="card">
-            <h2>Contact</h2>
-            <p>If you'd like to talk about QA opportunities or projects:</p>
-
-            <p>📧 Email: <a href="mailto:mulers85@gmail.com">mulers85@gmail.com</a></p>
-            <p>🐙 GitHub: <a href="https://github.com/mulers85" target="_blank">github.com/mulers85</a></p>
-        </div>
-
+  <!-- NAVBAR -->
+  <nav>
+    <div class="logo">
+      M T B <br />
+      Q A
     </div>
+    <div class="links">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#practice">Practice</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
 
-    <!-- FOOTER -->
-    <footer>
-        © 2025 Mulugeta Tesfay Beiene — Junior QA Tester
-    </footer>
+  <main class="page">
+    <!-- HERO / TOP CARD -->
+    <section class="card hero" id="top">
+      <div
+        class="profile-photo-wrapper"
+        aria-label="Photo of Mulugeta Tesfay Beiene"
+      ></div>
 
+      <h1>Mulugeta Tesfay Beiene</h1>
+      <h2>Junior QA Tester</h2>
+
+      <p>
+        I test web and mobile applications with a focus on clear test cases,
+        detailed bug reports, and improving user experience.
+      </p>
+
+      <div class="buttons">
+        <a class="button contact" href="mailto:mulers85@gmail.com">
+          📧 Contact Me
+        </a>
+
+        <a
+          class="button github"
+          href="https://github.com/mulers85"
+          target="_blank"
+        >
+          🐙 View GitHub
+        </a>
+
+        <a
+          class="button cv"
+          href="Mulugeta_Tesfay_Beiene_Resume.pdf"
+          target="_blank"
+        >
+          📄 Download CV
+        </a>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="card" id="about">
+      <h2 class="section-title">About Me</h2>
+      <p>A short summary of who I am as a QA tester.</p>
+      <p>
+        I am a manual QA tester focused on finding issues that really matter for
+        users. I enjoy writing structured test cases, reporting clear bugs, and
+        learning new tools. My goal is to grow into QA automation after building
+        a strong manual testing base.
+      </p>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="card" id="skills">
+      <h2 class="section-title">Skills</h2>
+      <p>What I bring to a QA team.</p>
+      <ul>
+        <li>Designing and executing manual test cases</li>
+        <li>Bug reporting with clear steps, result, and expectation</li>
+        <li>Working with Jira and Xray for test management</li>
+        <li>Basic SQL queries for data checks</li>
+        <li>API checking using Postman (basic)</li>
+      </ul>
+    </section>
+
+    <!-- PRACTICE -->
+    <section class="card" id="practice">
+      <h2 class="section-title">Recent QA Practice</h2>
+      <ul>
+        <li>Tested a basic calculator web app (functional + edge cases)</li>
+        <li>UI and functional testing practice on mobile and web apps</li>
+        <li>Used GitHub to track QA practice tasks and issues</li>
+      </ul>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section class="card" id="experience">
+      <h2 class="section-title">Experience Timeline</h2>
+
+      <p>
+        <strong>2024 — Now</strong><br />
+        Focused on QA learning, building manual testing skills, practicing with
+        tools like Jira, Xray, GitHub, SQL and Postman.
+      </p>
+
+      <p>
+        <strong>Before QA (Current role)</strong><br />
+        Head of butcher department in a supermarket — managing daily operations,
+        supervising staff, keeping quality and safety standards, and working
+        under pressure. I bring this discipline and attention to detail into my
+        QA work.
+      </p>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="card" id="contact">
+      <h2 class="section-title">Contact</h2>
+      <p>If you'd like to talk about QA opportunities or projects:</p>
+
+      <p>
+        📧 Email:
+        <a href="mailto:mulers85@gmail.com">mulers85@gmail.com</a>
+      </p>
+      <p>
+        🐙 GitHub:
+        <a href="https://github.com/mulers85" target="_blank"
+          >github.com/mulers85</a
+        >
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    © 2025 Mulugeta Tesfay Beiene — Junior QA Tester
+  </footer>
 </body>
 </html>
