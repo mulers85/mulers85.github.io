@@ -1,174 +1,201 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Mulugeta Tesfay Beiene — QA Tester</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mulugeta Tesfay Beiene — QA Tester</title>
 
-<style>
-    body {
-        font-family: Arial, sans-serif;
-        background-color: #0e1628;
-        color: #d7e3fc;
-        margin: 0;
-        padding: 0;
-    }
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #0d1117;
+            color: #e6edf3;
+        }
 
-    header {
-        background: #0b1320;
-        padding: 20px;
-        text-align: center;
-        font-size: 20px;
-        color: #5fa8ff;
-    }
+        header {
+            padding: 20px;
+            text-align: center;
+            background: #0d1117;
+        }
 
-    nav a {
-        margin: 0 15px;
-        color: #6aa9ff;
-        text-decoration: none;
-        font-weight: bold;
-    }
+        nav a {
+            margin: 0 15px;
+            color: #58a6ff;
+            text-decoration: none;
+            font-size: 18px;
+        }
 
-    .section {
-        width: 90%;
-        max-width: 900px;
-        margin: 30px auto;
-        background: #101b33;
-        padding: 25px;
-        border-radius: 12px;
-    }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 20px;
+        }
 
-    .profile-pic {
-        display: block;
-        width: 180px;
-        height: 180px;
-        border-radius: 50%;
-        border: 6px solid #2f79ff;
-        margin: 0 auto;
-        object-fit: cover;
-        object-position: top;
-    }
+        .profile-card {
+            background: #161b22;
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+        }
 
-    h1, h2 {
-        text-align: center;
-        color: #87b7ff;
-    }
+        .profile-pic {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 4px solid #3b82f6;
+            object-fit: cover;
+            object-position: center 20px;
+            margin-bottom: 20px;
+        }
 
-    h3 {
-        color: #9ac7ff;
-    }
+        h1 {
+            font-size: 32px;
+            margin-bottom: 5px;
+        }
 
-    .btn {
-        display: inline-block;
-        padding: 12px 20px;
-        background: #1f4eff;
-        color: white;
-        text-decoration: none;
-        border-radius: 8px;
-        margin: 6px 4px;
-        font-size: 15px;
-        border: 1px solid #3f6fff;
-    }
+        h2 {
+            font-size: 22px;
+            color: #3b82f6;
+            margin-top: 0;
+        }
 
-    .btn:hover {
-        background: #3f6fff;
-    }
+        .section {
+            margin-top: 40px;
+            padding: 25px;
+            background: #161b22;
+            border-radius: 20px;
+        }
 
-    footer {
-        text-align: center;
-        padding: 25px;
-        color: #8fb4ff;
-        margin-top: 50px;
-    }
-</style>
+        .btn {
+            display: inline-block;
+            padding: 12px 16px;
+            background: #2563eb;
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            margin: 6px;
+            font-size: 16px;
+        }
+
+        .btn:hover {
+            background: #3b82f6;
+        }
+
+        #contact a {
+            color: #58a6ff;
+            text-decoration: none;
+        }
+    </style>
 </head>
 
 <body>
 
-<header>
-    <nav>
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#practice">Practice</a>
-        <a href="#experience">Experience</a>
-        <a href="#contact">Contact</a>
-    </nav>
-</header>
+    <!-- NAVIGATION -->
+    <header>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#practice">Practice</a>
+            <a href="#experience">Experience</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
 
-<!-- ================= PROFILE SECTION ==================== -->
-<section class="section" id="about">
-    <img src="IMG_1216.jpeg" class="profile-pic" alt="Profile Photo" />
 
-    <h1>Mulugeta Tesfay Beiene</h1>
-    <h2>Junior QA Tester</h2>
+    <div class="container">
 
-    <p style="text-align:center; max-width:700px; margin:auto;">
-        I test web and mobile applications using clear test cases, detailed bug reports,
-        and smart problem-solving. I enjoy digging into issues, improving user experience,
-        and learning new QA tools.
-    </p>
+        <!-- PROFILE CARD -->
+        <div class="profile-card">
+            <img src="IMG_1216.jpeg" class="profile-pic" alt="Profile Photo">
 
-    <div style="text-align:center; margin-top:20px;">
-        <a class="btn" href="mailto:mulers85@gmail.com">📩 Contact Me</a>
-        <a class="btn" href="https://github.com/mulers85" target="_blank">🐙 View GitHub</a>
-        <a class="btn" href="Mulugeta_Tesfay_Beiene_Resume.pdf" target="_blank">📄 Download CV</a>
+            <h1>Mulugeta Tesfay Beiene</h1>
+            <h2>Junior QA Tester</h2>
+
+            <p>
+                I test web and mobile applications using clear test cases, detailed bug reports,
+                and a strong focus on improving user experience.
+            </p>
+
+            <a class="btn" href="mailto:mulers85@gmail.com">📧 Contact</a>
+            <a class="btn" href="https://github.com/mulers85" target="_blank">🐙 GitHub</a>
+            <a class="btn" href="Mulugeta_Tesfay_Beiene_Resume.pdf" target="_blank">📄 Download CV</a>
+        </div>
+
+
+        <!-- ABOUT -->
+        <div class="section" id="about">
+            <h2>About Me</h2>
+            <p>
+                I am a manual QA tester focused on writing structured test cases, clear bug reports,
+                and validating both web and mobile functionality. My goal is to grow into automation
+                after building a strong manual QA foundation.
+            </p>
+        </div>
+
+
+        <!-- SKILLS -->
+        <div class="section" id="skills">
+            <h2>Skills</h2>
+            <p>
+                • Manual Testing<br>
+                • Writing Test Cases<br>
+                • Bug Reporting (Jira, Xray)<br>
+                • SQL (Basic)<br>
+                • Postman (Basic API Testing)<br>
+                • Git & GitHub<br>
+            </p>
+        </div>
+
+
+        <!-- PRACTICE PROJECTS -->
+        <div class="section" id="practice">
+            <h2>Practice Projects</h2>
+
+            <h3>📘 Sample Test Cases</h3>
+
+            <a class="btn" href="STR.pdf" target="_blank">📄 Amazon STR — Test Cases</a>
+            <a class="btn" href="functional breakdown.pdf" target="_blank">📄 Functional Breakdown</a>
+            <a class="btn" href="(STD)Software Test Description Template for Discord App.pdf" target="_blank">📄 Discord Test Cases</a>
+
+            <br><br>
+
+            <h3>🐞 Sample Bug Reports</h3>
+
+            <a class="btn" href="Mulugeta Bug Report.pdf" target="_blank">🐞 Bug Report — Main</a>
+            <a class="btn" href="Bug Report: 1.pdf" target="_blank">🐞 Bug Report — Example 1</a>
+            <a class="btn" href="Copy of מסמך ללא שם.pdf" target="_blank">🐞 Bug Report — Hebrew</a>
+        </div>
+
+
+        <!-- EXPERIENCE -->
+        <div class="section" id="experience">
+            <h2>Experience</h2>
+
+            <p>
+                <strong>2024 – Now</strong><br>
+                Practicing manual QA testing, writing test cases, testing flows,
+                and reporting bugs using Jira & GitHub.
+            </p>
+
+            <p>
+                <strong>Before QA</strong><br>
+                Head of Butcher Department — managed quality, workflow, and operations.
+                This taught me discipline, precision, and attention to detail — all essential for QA.
+            </p>
+        </div>
+
+
+        <!-- CONTACT -->
+        <div class="section" id="contact">
+            <h2>Contact</h2>
+
+            <p>Email: <a href="mailto:mulers85@gmail.com">mulers85@gmail.com</a></p>
+            <p>GitHub: <a href="https://github.com/mulers85" target="_blank">github.com/mulers85</a></p>
+        </div>
+
     </div>
-</section>
-
-<!-- ================= SKILLS ==================== -->
-<section class="section" id="skills">
-    <h2>Skills</h2>
-    <p>Manual Testing • Test Case Writing • Bug Reporting • SQL (basic) • Postman (API) • GitHub • QA Documentation • Test Design</p>
-</section>
-
-<!-- ================= PRACTICE PROJECTS ==================== -->
-<section class="section" id="practice">
-    <h2>Practice Projects</h2>
-    <p>Below are real QA practice documents I created while learning test design and bug reporting.</p>
-
-    <h3>📘 Sample Test Cases</h3>
-    
-    <a class="btn" href="STR.pdf" target="_blank">📄 Amazon STR — Test Cases</a>
-    <a class="btn" href="functional breakdown.pdf" target="_blank">📄 Functional Breakdown</a>
-    <a class="btn" href="(STD)Software Test Description Template for Discord App.pdf" target="_blank">📄 Discord Test Cases</a>
-
-    <br><br>
-
-    <h3>🐞 Sample Bug Reports</h3>
-
-    <a class="btn" href="Mulugeta Bug Report.pdf" target="_blank">🐞 Bug Report — Main</a>
-    <a class="btn" href="Bug Report: 1.pdf" target="_blank">🐞 Bug Report — Example 1</a>
-    <a class="btn" href="Copy of מסמך ללא שם.pdf" target="_blank">🐞 Bug Report — Hebrew</a>
-</section>
-
-<!-- ================= EXPERIENCE ==================== -->
-<section class="section" id="experience">
-    <h2>Experience Timeline</h2>
-    <p>
-        <strong>2024 – Now</strong><br>
-        Learning and practicing QA:
-        manual testing, writing test cases, reporting bugs,
-        and working with Jira, GitHub, SQL, and Postman.
-    </p>
-
-    <p>
-        <strong>Before QA</strong><br>
-        Managed a butcher department for 7+ years:
-        leading teams, ensuring quality, and working under pressure.
-        I now use that discipline and attention to detail in QA work.
-    </p>
-</section>
-
-<!-- ================= CONTACT ==================== -->
-<section class="section" id="contact">
-    <h2>Contact</h2>
-    <p>Email: <a style="color:#6aa9ff;" href="mailto:mulers85@gmail.com">mulers85@gmail.com</a></p>
-    <p>GitHub: <a style="color:#6aa9ff;" href="https://github.com/mulers85">github.com/mulers85</a></p>
-</section>
-
-<footer>
-    © 2025 Mulugeta Tesfay Beiene — Junior QA Tester
-</footer>
 
 </body>
 </html>
