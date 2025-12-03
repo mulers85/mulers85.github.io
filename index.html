@@ -1,174 +1,681 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Mulugeta Tesfay Beiene — QA Tester</title>
+  <meta charset="UTF-8" />
+  <title>Mulugeta Tesfay Beiene — Junior QA Tester</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg: #050814;
+      --card-bg: #0b1020;
+      --accent: #3b82ff;
+      --accent-soft: #1d4ed8;
+      --text-main: #f9fafb;
+      --text-muted: #cbd5f5;
+      --border-subtle: #1f2937;
+      --success: #16a34a;
+      --danger: #e11d48;
+      --contact-link: #60a5ff;
+    }
 
-<style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
     body {
-        font-family: Arial, sans-serif;
-        background-color: #0e1628;
-        color: #d7e3fc;
-        margin: 0;
-        padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #111827 0, #020617 55%, #000 100%);
+      color: var(--text-main);
+      line-height: 1.6;
+      padding: 0 1rem 3rem;
     }
 
-    header {
-        background: #0b1320;
-        padding: 20px;
-        text-align: center;
-        font-size: 20px;
-        color: #5fa8ff;
+    .page {
+      max-width: 960px;
+      margin: 0 auto;
     }
 
-    nav a {
-        margin: 0 15px;
-        color: #6aa9ff;
-        text-decoration: none;
-        font-weight: bold;
+    /* NAVBAR */
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.25rem 0 0.75rem;
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: linear-gradient(to bottom, rgba(2,6,23,0.98), rgba(2,6,23,0.92), rgba(2,6,23,0));
+      backdrop-filter: blur(10px);
     }
 
-    .section {
-        width: 90%;
-        max-width: 900px;
-        margin: 30px auto;
-        background: #101b33;
-        padding: 25px;
-        border-radius: 12px;
+    .nav-left {
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      font-size: 0.9rem;
+      color: var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.75rem;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -0.35rem;
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      transition: width 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--text-main);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    /* HERO */
+
+    .hero-card {
+      margin-top: 1.5rem;
+      background: radial-gradient(circle at top, #111827 0, #020617 60%);
+      border-radius: 24px;
+      padding: 2.2rem 1.8rem 2.5rem;
+      border: 1px solid rgba(148, 163, 184, 0.18);
+      box-shadow: 0 32px 80px rgba(15, 23, 42, 0.9);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background: radial-gradient(circle at top, rgba(59,130,246,0.12), transparent 55%),
+                  radial-gradient(circle at bottom, rgba(59,130,246,0.07), transparent 60%);
+      opacity: 0.9;
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 640px;
+    }
+
+    .profile-ring {
+      width: 180px;
+      height: 180px;
+      border-radius: 999px;
+      border: 4px solid var(--accent);
+      padding: 6px;
+      margin: 0 auto 1.3rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle at top, #1f2937, #020617);
     }
 
     .profile-pic {
-        display: block;
-        width: 180px;
-        height: 180px;
-        border-radius: 50%;
-        border: 6px solid #2f79ff;
-        margin: 0 auto;
-        object-fit: cover;
-        object-position: top;
+      width: 100%;
+      height: 100%;
+      border-radius: 999px;
+      object-fit: cover;
+      object-position: center 35%; /* show a bit more hair */
+      border: 3px solid #020617;
+      background: #020617;
     }
 
-    h1, h2 {
-        text-align: center;
-        color: #87b7ff;
+    .hero-name {
+      font-size: clamp(1.9rem, 4vw, 2.4rem);
+      font-weight: 800;
+      letter-spacing: 0.03em;
+      margin-bottom: 0.25rem;
     }
 
-    h3 {
-        color: #9ac7ff;
+    .hero-role {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      margin-bottom: 0.9rem;
     }
 
-    .btn {
-        display: inline-block;
-        padding: 12px 20px;
-        background: #1f4eff;
-        color: white;
-        text-decoration: none;
-        border-radius: 8px;
-        margin: 6px 4px;
-        font-size: 15px;
-        border: 1px solid #3f6fff;
+    .hero-text {
+      color: var(--text-muted);
+      font-size: 0.98rem;
+      margin-bottom: 1.6rem;
     }
 
-    .btn:hover {
-        background: #3f6fff;
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.9rem;
+      margin-bottom: 0.4rem;
     }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.7rem 1.4rem;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease;
+      white-space: nowrap;
+    }
+
+    .button span {
+      margin-left: 0.35rem;
+    }
+
+    .button-primary {
+      background: linear-gradient(to right, #16a34a, #22c55e);
+      color: white;
+      box-shadow: 0 14px 30px rgba(34,197,94,0.3);
+    }
+
+    .button-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 18px 40px rgba(34,197,94,0.4);
+    }
+
+    .button-secondary {
+      background: #111827;
+      color: var(--text-main);
+      border: 1px solid rgba(148,163,184,0.4);
+    }
+
+    .button-secondary:hover {
+      background: #020617;
+      transform: translateY(-1px);
+    }
+
+    .button-accent {
+      background: var(--accent);
+      color: #e5f0ff;
+      box-shadow: 0 14px 40px rgba(37, 99, 235, 0.55);
+    }
+
+    .button-accent:hover {
+      background: #2563eb;
+      transform: translateY(-1px);
+    }
+
+    /* SECTION LAYOUT */
+
+    section {
+      margin-top: 2.4rem;
+    }
+
+    .section-card {
+      background: var(--card-bg);
+      border-radius: 22px;
+      border: 1px solid rgba(148, 163, 184, 0.22);
+      padding: 1.6rem 1.5rem 1.7rem;
+      box-shadow: 0 24px 60px rgba(15, 23, 42, 0.85);
+    }
+
+    .section-title {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 0.35rem;
+    }
+
+    .section-subtitle {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 0.9rem;
+    }
+
+    .about-text {
+      font-size: 0.98rem;
+      color: var(--text-muted);
+    }
+
+    /* GRID CARDS */
+
+    .grid {
+      display: grid;
+      gap: 1rem;
+    }
+
+    @media (min-width: 720px) {
+      .grid-2 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    .mini-card {
+      background: radial-gradient(circle at top left, #111827, #020617);
+      border-radius: 18px;
+      border: 1px solid rgba(148, 163, 184, 0.2);
+      padding: 1rem 1rem 1.1rem;
+    }
+
+    .mini-title {
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    .mini-subtitle {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 0.45rem;
+    }
+
+    .mini-list {
+      padding-left: 1.1rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .mini-list li {
+      margin-bottom: 0.25rem;
+    }
+
+    /* TAGS */
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin-top: 0.55rem;
+    }
+
+    .tag {
+      font-size: 0.78rem;
+      padding: 0.2rem 0.55rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      color: var(--text-muted);
+      background: rgba(15, 23, 42, 0.9);
+      white-space: nowrap;
+    }
+
+    /* PRACTICE PDF BUTTONS */
+
+    .sample-links {
+      margin-top: 1.1rem;
+      display: grid;
+      gap: 0.6rem;
+    }
+
+    .sample-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: flex-start;
+      width: 100%;
+      padding: 0.7rem 1rem;
+      border-radius: 999px;
+      border: none;
+      background: var(--accent);
+      color: #e5f0ff;
+      font-size: 0.94rem;
+      font-weight: 600;
+      text-decoration: none;
+      box-shadow: 0 12px 30px rgba(37, 99, 235, 0.5);
+      transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease;
+    }
+
+    .sample-button span {
+      margin-left: 0.5rem;
+    }
+
+    .sample-button:hover {
+      background: #2563eb;
+      transform: translateY(-1px);
+      box-shadow: 0 16px 40px rgba(37, 99, 235, 0.65);
+    }
+
+    /* EXPERIENCE */
+
+    .experience-item {
+      margin-bottom: 0.8rem;
+    }
+
+    .experience-item strong {
+      display: block;
+      margin-bottom: 0.18rem;
+    }
+
+    .experience-dates {
+      font-weight: 600;
+      margin-bottom: 0.2rem;
+    }
+
+    /* CONTACT */
+
+    .contact-info {
+      font-size: 0.96rem;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+    }
+
+    .contact-info a {
+      color: var(--contact-link);
+      text-decoration: none;
+    }
+
+    .contact-info a:hover {
+      text-decoration: underline;
+    }
+
+    .contact-form {
+      margin-top: 0.4rem;
+      display: grid;
+      gap: 0.75rem;
+    }
+
+    .form-row {
+      display: grid;
+      gap: 0.6rem;
+    }
+
+    @media (min-width: 640px) {
+      .form-row {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    label {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      display: block;
+      margin-bottom: 0.2rem;
+    }
+
+    input, textarea {
+      width: 100%;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      background: #020617;
+      padding: 0.55rem 0.9rem;
+      color: var(--text-main);
+      font-size: 0.9rem;
+      outline: none;
+      transition: border 0.12s ease, box-shadow 0.12s ease, background 0.12s ease;
+    }
+
+    textarea {
+      border-radius: 16px;
+      min-height: 110px;
+      resize: vertical;
+      padding-top: 0.6rem;
+    }
+
+    input:focus, textarea:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 1px rgba(59,130,246,0.4);
+      background: #02081f;
+    }
+
+    .contact-submit {
+      justify-self: flex-start;
+      margin-top: 0.2rem;
+    }
+
+    /* FOOTER */
 
     footer {
-        text-align: center;
-        padding: 25px;
-        color: #8fb4ff;
-        margin-top: 50px;
+      margin-top: 1.8rem;
+      text-align: center;
+      font-size: 0.8rem;
+      color: #6b7280;
     }
-</style>
+
+    footer span {
+      color: var(--accent);
+    }
+  </style>
 </head>
-
 <body>
-
-<header>
-    <nav>
+  <div class="page">
+    <!-- NAVBAR -->
+    <header class="nav">
+      <div class="nav-left">MTB&nbsp;QA</div>
+      <nav class="nav-links">
         <a href="#about">About</a>
         <a href="#skills">Skills</a>
         <a href="#practice">Practice</a>
         <a href="#experience">Experience</a>
         <a href="#contact">Contact</a>
-    </nav>
-</header>
+      </nav>
+    </header>
 
-<!-- ================= PROFILE SECTION ==================== -->
-<section class="section" id="about">
-    <img src="IMG_1216.jpeg" class="profile-pic" alt="Profile Photo" />
+    <!-- HERO -->
+    <main class="hero-card">
+      <div class="hero-inner">
+        <div class="profile-ring">
+          <!-- your original photo in the repo -->
+          <img src="IMG_1216.jpeg" alt="Mulugeta Tesfay Beiene" class="profile-pic" />
+        </div>
 
-    <h1>Mulugeta Tesfay Beiene</h1>
-    <h2>Junior QA Tester</h2>
+        <h1 class="hero-name">Mulugeta Tesfay Beiene</h1>
+        <div class="hero-role">Junior QA Tester</div>
+        <p class="hero-text">
+          I test web and mobile applications with a focus on clear test cases, detailed bug reports, and
+          improving user experience.
+        </p>
 
-    <p style="text-align:center; max-width:700px; margin:auto;">
-        I test web and mobile applications using clear test cases, detailed bug reports,
-        and smart problem-solving. I enjoy digging into issues, improving user experience,
-        and learning new QA tools.
-    </p>
+        <div class="hero-buttons">
+          <a href="#contact" class="button button-primary">
+            📧<span>Contact Me</span>
+          </a>
+          <a href="https://github.com/mulers85" target="_blank" class="button button-secondary">
+            🐙<span>View GitHub</span>
+          </a>
+          <a href="Mulugeta_Tesfay_Beiene_Resume.pdf" target="_blank" class="button button-accent">
+            📄<span>Download CV</span>
+          </a>
+        </div>
+      </div>
+    </main>
 
-    <div style="text-align:center; margin-top:20px;">
-        <a class="btn" href="mailto:mulers85@gmail.com">📩 Contact Me</a>
-        <a class="btn" href="https://github.com/mulers85" target="_blank">🐙 View GitHub</a>
-        <a class="btn" href="Mulugeta_Tesfay_Beiene_Resume.pdf" target="_blank">📄 Download CV</a>
-    </div>
-</section>
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="section-card">
+        <h2 class="section-title">About Me</h2>
+        <p class="section-subtitle">A short summary of who I am as a QA tester.</p>
+        <p class="about-text">
+          I am a manual QA tester focused on finding issues that really matter for users.
+          I enjoy writing structured test cases, reporting clear bugs, and learning new tools.
+          My goal is to grow into QA automation after building a strong manual testing foundation.
+        </p>
+      </div>
+    </section>
 
-<!-- ================= SKILLS ==================== -->
-<section class="section" id="skills">
-    <h2>Skills</h2>
-    <p>Manual Testing • Test Case Writing • Bug Reporting • SQL (basic) • Postman (API) • GitHub • QA Documentation • Test Design</p>
-</section>
+    <!-- SKILLS -->
+    <section id="skills">
+      <div class="section-card">
+        <h2 class="section-title">Skills</h2>
+        <p class="section-subtitle">What I bring to a QA team.</p>
 
-<!-- ================= PRACTICE PROJECTS ==================== -->
-<section class="section" id="practice">
-    <h2>Practice Projects</h2>
-    <p>Below are real QA practice documents I created while learning test design and bug reporting.</p>
+        <div class="grid grid-2">
+          <div class="mini-card">
+            <div class="mini-title">Testing &amp; QA</div>
+            <div class="mini-subtitle">Core manual testing skills.</div>
+            <ul class="mini-list">
+              <li>Designing and executing manual test cases from requirements or user stories.</li>
+              <li>Positive, negative, and edge case testing for web &amp; mobile flows.</li>
+              <li>Reporting bugs with clear steps, expected vs actual, and screenshots.</li>
+              <li>Basic regression and smoke testing for small releases.</li>
+            </ul>
+          </div>
 
-    <h3>📘 Sample Test Cases</h3>
-    
-    <a class="btn" href="STR.pdf" target="_blank">📄 Amazon STR — Test Cases</a>
-    <a class="btn" href="functional breakdown.pdf" target="_blank">📄 Functional Breakdown</a>
-    <a class="btn" href="(STD)Software Test Description Template for Discord App.pdf" target="_blank">📄 Discord Test Cases</a>
+          <div class="mini-card">
+            <div class="mini-title">Tools &amp; Practices</div>
+            <div class="mini-subtitle">Everyday tools I work with.</div>
+            <ul class="mini-list">
+              <li>Test management and bug tracking using Jira &amp; Xray.</li>
+              <li>Using GitHub for practice projects and issue tracking.</li>
+              <li>Basic SQL queries for simple data checks.</li>
+              <li>API checking using Postman (basic).</li>
+            </ul>
+            <div class="tags">
+              <span class="tag">Jira</span>
+              <span class="tag">Xray</span>
+              <span class="tag">GitHub</span>
+              <span class="tag">SQL (basic)</span>
+              <span class="tag">Postman</span>
+              <span class="tag">Manual Testing</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <br><br>
+    <!-- PRACTICE / PROJECTS -->
+    <section id="practice">
+      <div class="section-card">
+        <h2 class="section-title">Practice</h2>
+        <p class="section-subtitle">How I practice QA in real scenarios.</p>
 
-    <h3>🐞 Sample Bug Reports</h3>
+        <div class="grid grid-2">
+          <div class="mini-card">
+            <div class="mini-title">Web &amp; Mobile App Testing</div>
+            <div class="mini-subtitle">UI + functional flows.</div>
+            <ul class="mini-list">
+              <li>Tested a basic calculator web app with positive, negative, and edge cases.</li>
+              <li>Practiced mobile and web UI flows, checking layout, navigation, and inputs.</li>
+              <li>Used checklists and test cases to track coverage.</li>
+            </ul>
+            <div class="tags">
+              <span class="tag">Functional Testing</span>
+              <span class="tag">UI Checks</span>
+              <span class="tag">Edge Cases</span>
+            </div>
+          </div>
 
-    <a class="btn" href="Mulugeta Bug Report.pdf" target="_blank">🐞 Bug Report — Main</a>
-    <a class="btn" href="Bug Report: 1.pdf" target="_blank">🐞 Bug Report — Example 1</a>
-    <a class="btn" href="Copy of מסמך ללא שם.pdf" target="_blank">🐞 Bug Report — Hebrew</a>
-</section>
+          <div class="mini-card">
+            <div class="mini-title">API &amp; Data Experiments</div>
+            <div class="mini-subtitle">Postman + SQL (basic).</div>
+            <ul class="mini-list">
+              <li>Sent basic API calls in Postman and checked responses.</li>
+              <li>Compared API responses to database values using simple SQL queries.</li>
+              <li>Practiced thinking through the full flow between API and data.</li>
+            </ul>
+            <div class="tags">
+              <span class="tag">Postman</span>
+              <span class="tag">SQL</span>
+              <span class="tag">Data Validation</span>
+            </div>
+          </div>
+        </div>
 
-<!-- ================= EXPERIENCE ==================== -->
-<section class="section" id="experience">
-    <h2>Experience Timeline</h2>
-    <p>
-        <strong>2024 – Now</strong><br>
-        Learning and practicing QA:
-        manual testing, writing test cases, reporting bugs,
-        and working with Jira, GitHub, SQL, and Postman.
-    </p>
+        <!-- PDF SAMPLE BUTTONS -->
+        <div class="sample-links">
+          <a class="sample-button" href="bug-report-example-1.pdf" target="_blank">
+            🐞 <span>Bug Report — Example 1 (PDF)</span>
+          </a>
+          <a class="sample-button" href="bug-report-hebrew.pdf" target="_blank">
+            🐞 <span>Bug Report — Hebrew (PDF)</span>
+          </a>
+          <a class="sample-button" href="test-cases-calculator.pdf" target="_blank">
+            📋 <span>Test Cases — Calculator App (PDF)</span>
+          </a>
+          <a class="sample-button" href="test-cases-discord.pdf" target="_blank">
+            📋 <span>Test Cases — Discord App (PDF)</span>
+          </a>
+        </div>
+      </div>
+    </section>
 
-    <p>
-        <strong>Before QA</strong><br>
-        Managed a butcher department for 7+ years:
-        leading teams, ensuring quality, and working under pressure.
-        I now use that discipline and attention to detail in QA work.
-    </p>
-</section>
+    <!-- EXPERIENCE -->
+    <section id="experience">
+      <div class="section-card">
+        <h2 class="section-title">Experience</h2>
+        <p class="section-subtitle">How my background connects to QA.</p>
 
-<!-- ================= CONTACT ==================== -->
-<section class="section" id="contact">
-    <h2>Contact</h2>
-    <p>Email: <a style="color:#6aa9ff;" href="mailto:mulers85@gmail.com">mulers85@gmail.com</a></p>
-    <p>GitHub: <a style="color:#6aa9ff;" href="https://github.com/mulers85">github.com/mulers85</a></p>
-</section>
+        <div class="experience-item">
+          <div class="experience-dates">2024 – Now</div>
+          <p>
+            Practicing manual QA testing, writing test cases, testing flows, and reporting bugs using
+            Jira &amp; GitHub.
+          </p>
+        </div>
 
-<footer>
-    © 2025 Mulugeta Tesfay Beiene — Junior QA Tester
-</footer>
+        <div class="experience-item">
+          <strong>Before QA</strong>
+          <p>
+            Head of Butcher Department in a supermarket — managing daily operations, supervising staff,
+            keeping quality and safety standards, and working under pressure. I now bring this discipline
+            and attention to detail into my QA work.
+          </p>
+        </div>
+      </div>
+    </section>
 
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="section-card">
+        <h2 class="section-title">Contact</h2>
+        <p class="section-subtitle">If you’d like to talk about QA opportunities or projects:</p>
+
+        <div class="contact-info">
+          <p>📧 Email: <a href="mailto:mulers85@gmail.com">mulers85@gmail.com</a></p>
+          <p>🐙 GitHub: <a href="https://github.com/mulers85" target="_blank">github.com/mulers85</a></p>
+        </div>
+
+        <!-- Simple contact form that opens an email -->
+        <form
+          class="contact-form"
+          action="mailto:mulers85@gmail.com"
+          method="POST"
+          enctype="text/plain"
+        >
+          <div class="form-row">
+            <div>
+              <label for="name">Name</label>
+              <input id="name" name="Name" type="text" placeholder="Your name" required />
+            </div>
+            <div>
+              <label for="email">Email</label>
+              <input id="email" name="Email" type="email" placeholder="your@email.com" required />
+            </div>
+          </div>
+
+          <div>
+            <label for="message">Message</label>
+            <textarea id="message" name="Message" placeholder="Tell me a bit about your project or role..." required></textarea>
+          </div>
+
+          <button type="submit" class="button button-accent contact-submit">
+            📨<span>Send Message</span>
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <footer>
+      © 2025 <span>Mulugeta Tesfay Beiene</span> — Junior QA Tester · Built with plain HTML &amp; CSS
+    </footer>
+  </div>
 </body>
 </html>
