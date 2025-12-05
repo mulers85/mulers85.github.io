@@ -5,6 +5,15 @@
   <title>Mulugeta Tesfay Beiene — Junior QA Tester</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
+    :root.light {
+   --bg: #f5f5f5;
+   --card-bg: #ffffff;
+   --text-main: #222222;
+   --text-muted: #555555;
+   --accent: #0066ff;
+   --border: #cccccc;
+}
+
     :root {
       --bg: #050814;
       --card-bg: #0b1020;
@@ -57,6 +66,7 @@
       font-size: 0.9rem;
       color: var(--accent);
     }
+<button id="theme-toggle" class="theme-toggle">🌙</button>
 
     .nav-links {
       display: flex;
@@ -88,6 +98,16 @@
     .nav-links a:hover::after {
       width: 100%;
     }
+.theme-toggle {
+    background: transparent;
+    border: 2px solid var(--accent);
+    color: var(--accent);
+    padding: 6px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-left: 1rem;
+}
 
     /* HERO */
 
@@ -698,6 +718,14 @@
     <footer>
       © 2025 <span>Mulugeta Tesfay Beiene</span> — Junior QA Tester · Built with plain HTML &amp; CSS
     </footer>
-  </div>
+</div<script>
+    const toggle = document.getElementById("theme-toggle");
+    toggle.addEventListener("click", () => {
+        document.documentElement.classList.toggle("light");
+        toggle.textContent =
+            document.documentElement.classList.contains("light") ? "☀️" : "🌙";
+    });
+</script>
+
 </body>
 </html>
