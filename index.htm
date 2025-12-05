@@ -543,7 +543,6 @@
     <section class="hero-card">
       <div class="hero-inner">
         <div class="profile-ring">
-          <!-- IMPORTANT: make sure this file exists in the repo -->
           <img src="IMG_1216.jpeg" alt="Mulugeta Tesfay Beiene" class="profile-pic" />
         </div>
 
@@ -629,15 +628,17 @@
 
       <p>
         I practice QA by testing small apps and writing documents like bug reports, STR (test tree), and
-        functional breakdowns. Below are sample documents for a Discord-style app:
+        functional breakdowns.
       </p>
 
       <ul class="practice-list">
         <li>Discord-style chat app – login, messaging, channels, and UI flows.</li>
+        <li>Amazon-style flow – STR and bug reports in English and Hebrew.</li>
       </ul>
 
       <div class="tag-row">
         <div class="tag">Discord App</div>
+        <div class="tag">Amazon Flow</div>
         <div class="tag">Manual Testing</div>
         <div class="tag">Bug Reports</div>
         <div class="tag">STR / Test Tree</div>
@@ -645,22 +646,40 @@
       </div>
 
       <div class="sample-links">
-        <div class="sample-label">Discord testing documents:</div>
+        <div class="sample-label">Discord app documents:</div>
 
-        <!-- Make sure filenames in the repo match these three -->
-        <a class="sample-link" href="bug-report-discord.pdf" target="_blank" rel="noopener">
+        <!-- Uses your current filenames -->
+        <a class="sample-link" href="Bug Report: 1.pdf" target="_blank" rel="noopener">
           <span>🐞</span>
           <span>Bug Report — Discord App</span>
         </a>
 
-        <a class="sample-link" href="test-tree-discord.pdf" target="_blank" rel="noopener">
+        <a class="sample-link" href="STR.pdf" target="_blank" rel="noopener">
           <span>🧪</span>
-          <span>Test Tree (STR) — Discord App</span>
+          <span>Test Tree (STR) — Discord / Amazon</span>
         </a>
 
         <a class="sample-link" href="functional-breakdown-discord.pdf" target="_blank" rel="noopener">
           <span>📄</span>
           <span>Functional Breakdown — Discord App</span>
+        </a>
+
+        <div class="sample-label" style="margin-top:0.75rem;">Other QA documents:</div>
+
+        <a class="sample-link" href="(STD)Software Test Description Template for Discord App.pdf"
+           target="_blank" rel="noopener">
+          <span>📘</span>
+          <span>STD — Discord App</span>
+        </a>
+
+        <a class="sample-link" href="Mulugeta Bug Report.pdf" target="_blank" rel="noopener">
+          <span>🐞</span>
+          <span>Bug Report — Amazon (English)</span>
+        </a>
+
+        <a class="sample-link" href="Copy of מסמך ללא שם.pdf" target="_blank" rel="noopener">
+          <span>🐞</span>
+          <span>Bug Report — Hebrew</span>
         </a>
       </div>
     </section>
@@ -736,7 +755,6 @@
       const icon = toggle.querySelector(".icon");
       const label = toggle.querySelector(".label");
 
-      // Load saved theme
       const saved = localStorage.getItem("theme");
       if (saved === "light") {
         body.classList.add("light");
@@ -753,7 +771,7 @@
       });
     })();
 
-    // CONTACT FORM → opens email client
+    // CONTACT FORM → open email client
     (function () {
       const form = document.querySelector(".contact-form");
       if (!form) return;
