@@ -4,39 +4,42 @@
   <meta charset="UTF-8" />
   <title>Mulugeta Tesfay Beiene – Junior QA Tester</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <style>
-    /* ---------- THEME COLORS ---------- */
     :root {
-      /* Dark theme (default) – portfolio style */
-      --bg: #050816;
-      --card-bg: #050011;
-      --accent: #a855f7;
-      --accent-soft: #4c1d95;
+      /* Dark theme (default) */
+      --bg: #050814;
+      --card-bg: #081020;
+      --card-bg-soft: #0b1028;
+      --accent: #3b82f6;
+      --accent-soft: #1d4ed8;
       --text-main: #f9fafb;
-      --text-muted: #9ca3af;
+      --text-muted: #d1d5db;
       --border-subtle: #1f2937;
-      --success: #22c55e;
+      --success: #16a34a;
       --danger: #f97373;
-      --contact-link: #a855f7;
-      --shadow-button: 0 18px 40px rgba(88, 28, 135, 0.55);
+      --contact-link: #60a5ff;
+      --shadow-nav: 0 24px 60px rgba(15, 23, 42, 0.9);
+      --shadow-button: 0 18px 40px rgba(37, 99, 235, 0.65);
     }
 
     body.light {
-      /* Light theme */
-      --bg: #f9fafb;
+      /* Light theme overrides */
+      --bg: #f3f4f6;
       --card-bg: #ffffff;
-      --accent: #8b5cf6;
-      --accent-soft: #c4b5fd;
-      --text-main: #0f172a;
+      --card-bg-soft: #e5e7eb;
+      --accent: #2563eb;
+      --accent-soft: #1d4ed8;
+      --text-main: #020617;
       --text-muted: #4b5563;
-      --border-subtle: #e5e7eb;
-      --success: #22c55e;
+      --border-subtle: #d1d5db;
+      --success: #16a34a;
       --danger: #dc2626;
-      --contact-link: #7c3aed;
-      --shadow-button: 0 16px 36px rgba(148, 163, 184, 0.35);
+      --contact-link: #2563eb;
+      --shadow-nav: 0 18px 40px rgba(148, 163, 184, 0.45);
+      --shadow-button: 0 16px 30px rgba(37, 99, 235, 0.35);
     }
 
-    /* ---------- GLOBAL ---------- */
     * {
       box-sizing: border-box;
       margin: 0;
@@ -49,7 +52,7 @@
         radial-gradient(circle at top left, #1e293b 0, #020617 40%, #000 100%);
       color: var(--text-main);
       line-height: 1.6;
-      padding: 0 1rem 3rem;
+      padding: 0 0 4rem;
     }
 
     body.light {
@@ -57,466 +60,454 @@
     }
 
     .page {
-      max-width: 1040px;
+      max-width: 1200px;   /* <— wider page */
       margin: 0 auto;
+      padding: 0 1.5rem;
     }
 
     a {
       color: var(--contact-link);
       text-decoration: none;
     }
+
     a:hover {
       text-decoration: underline;
     }
 
     /* ---------- NAVBAR ---------- */
+
     .nav {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1.1rem 0.3rem;
+      padding: 1.25rem 0;
       position: sticky;
       top: 0;
-      z-index: 20;
-      background: linear-gradient(to bottom, rgba(5, 8, 22, 0.97), rgba(5, 8, 22, 0.92));
-      backdrop-filter: blur(16px);
-      border-bottom: 1px solid rgba(148, 163, 184, 0.35);
-    }
-    body.light .nav {
-      background: linear-gradient(to bottom, rgba(249, 250, 251, 0.97), rgba(249, 250, 251, 0.94));
-      border-bottom-color: var(--border-subtle);
+      z-index: 10;
+      background: linear-gradient(
+        to bottom,
+        rgba(5, 8, 20, 0.98),
+        rgba(5, 8, 20, 0.94),
+        rgba(5, 8, 20, 0.9)
+      );
+      backdrop-filter: blur(18px);
+      box-shadow: var(--shadow-nav);
     }
 
-    .nav-logo {
+    .nav-left {
       font-weight: 700;
-      letter-spacing: 0.24em;
-      font-size: 0.9rem;
-      display: flex;
-      flex-direction: column;
-      line-height: 1.1;
+      letter-spacing: 0.35em;
+      font-size: 0.85rem;
+      color: var(--accent);
+      text-transform: uppercase;
     }
-    .nav-logo span:first-child {
-      font-size: 1.05rem;
-    }
-    .nav-logo span:last-child {
-      font-size: 0.75rem;
-      color: var(--text-muted);
+
+    .nav-left span:last-child {
+      display: block;
+      letter-spacing: 0.4em;
     }
 
     .nav-links {
       display: flex;
       gap: 1.5rem;
-      font-size: 0.92rem;
+      font-size: 0.95rem;
     }
+
     .nav-links a {
       color: var(--text-muted);
       position: relative;
+      text-decoration: none;
+      padding-bottom: 0.25rem;
     }
-    .nav-links a:after {
+
+    .nav-links a::after {
       content: "";
       position: absolute;
       left: 0;
-      bottom: -0.18rem;
+      bottom: 0;
       width: 0;
       height: 2px;
       background: var(--accent);
-      transition: width 0.18s ease;
+      transition: width 0.2s ease;
     }
-    .nav-links a:hover {
-      color: var(--text-main);
-    }
-    .nav-links a:hover:after {
+
+    .nav-links a:hover::after {
       width: 100%;
     }
 
     .theme-toggle {
+      background: transparent;
       border-radius: 999px;
-      border: 1px solid var(--accent);
-      padding: 5px 12px;
-      cursor: pointer;
+      border: 2px solid var(--accent);
+      color: var(--accent);
+      padding: 0.35rem 0.9rem;
       display: flex;
       align-items: center;
-      gap: 0.4rem;
-      font-size: 0.82rem;
-      color: var(--accent);
-      background: radial-gradient(circle at top, rgba(88, 28, 135, 0.25), transparent 70%);
+      gap: 0.5rem;
+      cursor: pointer;
+      font-size: 0.9rem;
     }
-    .theme-toggle span:first-child {
+
+    .theme-toggle span {
       font-size: 1.1rem;
     }
 
-    /* ---------- HERO (portfolio-style) ---------- */
-    .hero-shell {
-      margin-top: 2.1rem;
-      border-radius: 26px;
-      padding: 2.1rem 2rem;
-      background: radial-gradient(circle at top left, rgba(148, 51, 234, 0.35), transparent 55%),
-                  radial-gradient(circle at bottom right, rgba(37, 99, 235, 0.24), transparent 65%),
-                  #050014;
-      border: 1px solid rgba(148, 163, 184, 0.25);
-      box-shadow: 0 28px 70px rgba(15, 23, 42, 0.9);
-    }
-    body.light .hero-shell {
-      background: linear-gradient(135deg, #ffffff, #eef2ff);
-      box-shadow: 0 20px 55px rgba(148, 163, 184, 0.7);
-      border-color: #e5e7eb;
-    }
+    /* ---------- HERO ---------- */
 
-    .hero-layout {
+    .hero-card {
+      margin-top: 1.75rem;
+      background: radial-gradient(circle at top, #111827 0, #020617 60%);
+      border-radius: 24px;
+      padding: 2.5rem 1.5rem 3rem;
+      border: 1px solid rgba(15, 23, 42, 0.9);
+      box-shadow: 0 32px 80px rgba(15, 23, 42, 0.95);
       display: flex;
       flex-direction: column;
-      gap: 2.1rem;
       align-items: center;
-    }
-    @media (min-width: 820px) {
-      .hero-layout {
-        flex-direction: row;
-        align-items: center;
-      }
+      position: relative;
+      overflow: hidden;
     }
 
-    .hero-left {
-      flex: 1.4;
+    body.light .hero-card {
+      background: radial-gradient(circle at top, #ffffff 0, #e5e7eb 70%);
+      border-color: #d1d5db;
+      box-shadow: 0 26px 60px rgba(148, 163, 184, 0.55);
     }
-    .hero-right {
-      flex: 1;
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background:
+        radial-gradient(circle at top, rgba(37, 99, 235, 0.18), transparent 60%),
+        radial-gradient(circle at bottom, rgba(59, 130, 246, 0.16), transparent 70%);
+      opacity: 0.9;
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
       display: flex;
-      justify-content: center;
-    }
-
-    .hero-kicker {
-      font-size: 0.82rem;
-      text-transform: uppercase;
-      letter-spacing: 0.22em;
-      color: var(--accent-soft);
-      margin-bottom: 0.55rem;
-    }
-
-    .hero-name {
-      font-size: clamp(2.2rem, 4vw, 2.7rem);
-      font-weight: 800;
-      letter-spacing: 0.03em;
-      margin-bottom: 0.25rem;
-    }
-
-    .hero-role {
-      font-size: 1.02rem;
-      font-weight: 600;
-      color: #e5e7eb;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      margin-bottom: 0.8rem;
-    }
-    body.light .hero-role {
-      color: #4b5563;
-    }
-
-    .hero-text {
-      font-size: 0.98rem;
-      color: var(--text-muted);
-      max-width: 520px;
-    }
-
-    .hero-actions {
-      margin-top: 1.6rem;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.8rem;
-    }
-
-    .button {
-      border-radius: 999px;
-      padding: 0.7rem 1.6rem;
-      font-size: 0.93rem;
-      font-weight: 600;
-      border: none;
-      cursor: pointer;
-      display: inline-flex;
+      flex-direction: column;
       align-items: center;
-      gap: 0.45rem;
-      box-shadow: var(--shadow-button);
-      text-decoration: none;
-      transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.15s ease;
-      white-space: nowrap;
-    }
-    .button span:first-child { font-size: 1.05rem; }
-
-    .button-primary {
-      background: linear-gradient(to right, var(--accent), #6366f1);
-      color: #eef2ff;
-    }
-    .button-secondary {
-      background: rgba(15, 23, 42, 0.9);
-      color: #e5e7eb;
-    }
-    body.light .button-secondary {
-      background: #111827;
-      color: #f9fafb;
-    }
-    .button-tertiary {
-      background: rgba(15, 23, 42, 0.85);
-      color: #e5e7eb;
-    }
-
-    .button:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.8);
-      text-decoration: none;
+      gap: 1.7rem;
+      max-width: 720px;
+      text-align: center;
     }
 
     .profile-ring {
-      width: 210px;
-      height: 210px;
-      border-radius: 999px;
+      width: 180px;
+      height: 180px;
       padding: 6px;
-      background: radial-gradient(circle at top, #1f2937, #020617);
+      border-radius: 999px;
       border: 4px solid var(--accent);
       display: flex;
-      align-items: center;
       justify-content: center;
+      align-items: center;
+      background: radial-gradient(circle at top, #1f2937, #020617);
     }
-    body.light .profile-ring {
-      background: radial-gradient(circle at top, #e5e7eb, #f9fafb);
-    }
+
     .profile-pic {
       width: 100%;
       height: 100%;
       border-radius: 999px;
       object-fit: cover;
-      object-position: center 28%;
+      object-position: center 35%;
       border: 3px solid #020617;
       background: #020617;
     }
 
+    body.light .profile-pic {
+      border-color: #e5e7eb;
+      background: #e5e7eb;
+    }
+
+    .hero-name {
+      font-size: clamp(2.2rem, 4vw, 2.6rem);
+      font-weight: 800;
+      letter-spacing: 0.03em;
+    }
+
+    .hero-role {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--accent);
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-top: 0.25rem;
+    }
+
+    .hero-text {
+      color: var(--text-muted);
+      max-width: 640px;
+      font-size: 0.98rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 0.75rem;
+    }
+
+    .hero-actions a {
+      text-decoration: none;
+    }
+
+    .btn {
+      border-radius: 999px;
+      border: none;
+      padding: 0.75rem 1.6rem;
+      font-size: 0.95rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      cursor: pointer;
+      box-shadow: var(--shadow-button);
+      white-space: nowrap;
+    }
+
+    .btn span {
+      font-size: 1.05rem;
+    }
+
+    .btn-main {
+      background: var(--success);
+      color: #ffffff;
+    }
+
+    .btn-secondary {
+      background: #111827;
+      color: var(--text-main);
+      box-shadow: 0 16px 32px rgba(15, 23, 42, 0.8);
+      border: 1px solid rgba(75, 85, 99, 0.8);
+    }
+
+    body.light .btn-secondary {
+      background: #111827;
+      color: #f9fafb;
+    }
+
+    .btn-accent {
+      background: var(--accent);
+      color: #ffffff;
+    }
+
     /* ---------- SECTIONS ---------- */
+
     .section {
       margin-top: 2.2rem;
-      background: #050015;
-      border-radius: 22px;
-      padding: 1.7rem 1.6rem 1.9rem;
-      border: 1px solid rgba(30, 64, 175, 0.45);
+      background: var(--card-bg);
+      border-radius: 24px;
+      padding: 1.6rem 1.5rem 2rem;
+      border: 1px solid var(--border-subtle);
     }
+
     body.light .section {
       background: #ffffff;
       border-color: #e5e7eb;
     }
 
     .section-title {
-      font-size: 1.35rem;
+      font-size: 1.3rem;
       font-weight: 700;
-      margin-bottom: 0.2rem;
+      margin-bottom: 0.35rem;
       color: var(--accent);
     }
 
     .section-subtitle {
       font-size: 0.9rem;
       color: var(--text-muted);
-      margin-bottom: 0.9rem;
+      margin-bottom: 1rem;
     }
 
-    /* ---------- ABOUT ---------- */
-    .about-text p + p {
-      margin-top: 0.7rem;
+    /* About text */
+    #about p + p {
+      margin-top: 0.75rem;
     }
 
-    /* ---------- SKILLS ---------- */
+    /* Skills */
     .skills-grid {
       display: grid;
-      gap: 1rem;
-    }
-    @media (min-width: 760px) {
-      .skills-grid {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-      }
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.25rem;
+      margin-top: 0.75rem;
     }
 
     .skill-card {
-      padding: 1.05rem 1rem;
-      border-radius: 16px;
-      background: rgba(15, 23, 42, 0.95);
-      border: 1px solid rgba(51, 65, 85, 0.85);
+      background: rgba(15, 23, 42, 0.9);
+      border-radius: 18px;
+      padding: 1rem 1.1rem 1.1rem;
+      border: 1px solid rgba(31, 41, 55, 0.95);
     }
+
     body.light .skill-card {
       background: #f9fafb;
       border-color: #e5e7eb;
     }
+
     .skill-card h3 {
-      font-size: 0.95rem;
-      margin-bottom: 0.3rem;
-      color: var(--accent);
+      font-size: 1rem;
+      margin-bottom: 0.4rem;
     }
+
     .skill-card ul {
-      list-style: disc;
       padding-left: 1.1rem;
-      font-size: 0.88rem;
-      color: var(--text-muted);
-    }
-    .skill-card li + li { margin-top: 0.28rem; }
-
-    /* ---------- PRACTICE ---------- */
-    .practice-grid {
-      display: grid;
-      gap: 1rem;
-    }
-    @media (min-width: 760px) {
-      .practice-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-    }
-
-    .practice-card {
-      padding: 1.1rem 1rem 1.2rem;
-      border-radius: 16px;
-      background: rgba(15, 23, 42, 0.96);
-      border: 1px solid rgba(51, 65, 85, 0.85);
-    }
-    body.light .practice-card {
-      background: #f9fafb;
-      border-color: #e5e7eb;
-    }
-    .practice-title {
-      font-size: 0.96rem;
-      font-weight: 600;
-      margin-bottom: 0.2rem;
-      color: var(--accent);
-    }
-    .practice-meta {
-      font-size: 0.82rem;
-      color: var(--text-muted);
-      margin-bottom: 0.5rem;
-    }
-    .practice-card ul {
-      list-style: disc;
-      padding-left: 1.1rem;
-      font-size: 0.88rem;
-      color: var(--text-muted);
-    }
-    .practice-card li + li { margin-top: 0.26rem; }
-
-    .tags {
-      margin-top: 0.55rem;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-      font-size: 0.78rem;
-    }
-    .tag {
-      padding: 0.16rem 0.6rem;
-      border-radius: 999px;
-      background: rgba(148, 163, 184, 0.18);
-      border: 1px solid rgba(148, 163, 184, 0.4);
-      color: var(--text-muted);
-    }
-
-    /* ---------- PDF LINKS ---------- */
-    .sample-links {
-      margin-top: 1.1rem;
-      display: grid;
-      gap: 0.45rem;
-    }
-    .sample-link-item {
       font-size: 0.9rem;
+    }
+
+    .skill-card li + li {
+      margin-top: 0.35rem;
+    }
+
+    /* Practice / Samples */
+
+    .samples-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      margin-top: 0.75rem;
+      font-size: 0.93rem;
+    }
+
+    .samples-list a {
       display: inline-flex;
       align-items: center;
       gap: 0.45rem;
+      text-decoration: none;
+      color: var(--contact-link);
+      padding: 0.35rem 0.5rem;
+      border-radius: 999px;
     }
-    .sample-link-item span:first-child {
+
+    .samples-list a span.icon {
       font-size: 1.05rem;
     }
 
-    /* ---------- EXPERIENCE ---------- */
-    .timeline {
-      list-style: none;
-      margin-top: 0.7rem;
+    .samples-list a:hover {
+      background: rgba(37, 99, 235, 0.13);
     }
-    .timeline li + li { margin-top: 0.9rem; }
-    .timeline-range {
+
+    /* Experience */
+
+    .timeline-item + .timeline-item {
+      margin-top: 0.9rem;
+    }
+
+    .timeline-label {
       font-weight: 700;
-      margin-bottom: 0.12rem;
+      margin-bottom: 0.1rem;
     }
-    .timeline-title {
-      font-weight: 600;
-      margin-bottom: 0.15rem;
-    }
+
     .timeline-text {
-      font-size: 0.9rem;
+      font-size: 0.93rem;
       color: var(--text-muted);
     }
 
-    /* ---------- CONTACT ---------- */
-    .contact-list {
-      margin-top: 0.65rem;
-      font-size: 0.94rem;
+    /* Contact */
+
+    .contact-lines p + p {
+      margin-top: 0.5rem;
     }
-    .contact-row + .contact-row { margin-top: 0.35rem; }
-    .contact-label { font-weight: 600; }
+
+    .contact-lines a {
+      font-weight: 500;
+    }
 
     .contact-form {
-      margin-top: 1rem;
+      margin-top: 1.3rem;
       display: grid;
-      gap: 0.7rem;
-    }
-    .field label {
-      display: block;
-      font-size: 0.84rem;
-      margin-bottom: 0.15rem;
-      color: var(--text-muted);
-    }
-    .field input,
-    .field textarea {
-      width: 100%;
-      border-radius: 10px;
-      border: 1px solid var(--border-subtle);
-      padding: 0.55rem 0.6rem;
-      font: inherit;
-      background: #020617;
-      color: var(--text-main);
-    }
-    body.light .field input,
-    body.light .field textarea {
-      background: #ffffff;
-    }
-    .field textarea {
-      min-height: 90px;
-      resize: vertical;
-    }
-    .send-button {
-      justify-content: center;
-      width: fit-content;
+      gap: 0.75rem;
     }
 
-    /* ---------- FOOTER ---------- */
+    .field-group {
+      display: grid;
+      gap: 0.25rem;
+    }
+
+    .field-group label {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .field-group input,
+    .field-group textarea {
+      border-radius: 12px;
+      border: 1px solid var(--border-subtle);
+      background: #020617;
+      color: var(--text-main);
+      padding: 0.55rem 0.75rem;
+      font: inherit;
+    }
+
+    body.light .field-group input,
+    body.light .field-group textarea {
+      background: #f9fafb;
+      border-color: #d1d5db;
+      color: #020617;
+    }
+
+    .field-group textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+
+    .contact-form button {
+      justify-self: flex-start;
+      padding-inline: 1.4rem;
+    }
+
+    /* Footer */
+
     .footer {
-      max-width: 1040px;
-      margin: 1.5rem auto 0;
+      margin-top: 2.2rem;
       font-size: 0.8rem;
       color: var(--text-muted);
       text-align: center;
+      padding-bottom: 1rem;
+    }
+
+    .footer span {
+      opacity: 0.85;
     }
 
     /* ---------- RESPONSIVE ---------- */
-    @media (max-width: 640px) {
-      .hero-shell {
-        padding: 1.8rem 1.3rem;
+
+    @media (max-width: 768px) {
+      .nav {
+        flex-wrap: wrap;
+        gap: 0.75rem;
       }
+
       .nav-links {
-        gap: 1rem;
-        font-size: 0.82rem;
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
       }
-      .theme-toggle span:last-child {
-        display: none;
+
+      .hero-card {
+        padding-inline: 1.1rem;
+      }
+
+      .section {
+        padding-inline: 1.1rem;
       }
     }
   </style>
 </head>
-<body>
+
+<body class="dark">
   <div class="page">
     <!-- NAVBAR -->
     <header class="nav">
-      <div class="nav-logo">
-        <span>MTB QA</span>
-        <span>Junior QA Tester</span>
+      <div class="nav-left">
+        <span>MTB</span>
+        <span>QA</span>
       </div>
+
       <nav class="nav-links">
         <a href="#about">About</a>
         <a href="#skills">Skills</a>
@@ -524,63 +515,65 @@
         <a href="#experience">Experience</a>
         <a href="#contact">Contact</a>
       </nav>
-      <button class="theme-toggle" id="themeToggle">
+
+      <button class="theme-toggle" id="themeToggle" type="button">
         <span id="themeIcon">🌙</span>
-        <span>Theme</span>
+        <span id="themeLabel">Dark</span>
       </button>
     </header>
 
-    <!-- HERO (text left, photo right) -->
-    <section class="hero-shell">
-      <div class="hero-layout">
-        <div class="hero-left">
-          <div class="hero-kicker">QA Portfolio</div>
-          <h1 class="hero-name">Hi, I’m Mulugeta Tesfay Beiene</h1>
-          <div class="hero-role">Junior QA Tester</div>
-          <p class="hero-text">
-            I test web and mobile applications using clear test cases, detailed bug reports,
-            and a strong focus on user experience. I enjoy breaking things in a smart way and
-            explaining exactly what happened.
-          </p>
-
-          <div class="hero-actions">
-            <a href="#contact" class="button button-primary">
-              <span>📩</span><span>Contact Me</span>
-            </a>
-            <a href="https://github.com/mulers85" target="_blank" class="button button-secondary">
-              <span>🐙</span><span>GitHub</span>
-            </a>
-            <a href="Mulugeta_Tesfay_Beiene_Resume.pdf" target="_blank" class="button button-tertiary">
-              <span>📄</span><span>Download CV</span>
-            </a>
-          </div>
+    <!-- HERO -->
+    <section class="hero-card" id="top">
+      <div class="hero-inner">
+        <div class="profile-ring">
+          <img src="IMG_1216.jpeg" alt="Mulugeta Tesfay Beiene" class="profile-pic" />
         </div>
 
-        <div class="hero-right">
-          <div class="profile-ring">
-            <img src="IMG_1216.jpeg" alt="Mulugeta Tesfay Beiene" class="profile-pic" />
-          </div>
+        <div>
+          <div class="hero-name">Mulugeta Tesfay Beiene</div>
+          <div class="hero-role">Junior QA Tester</div>
+        </div>
+
+        <p class="hero-text">
+          I test web and mobile applications using clear test cases, detailed bug reports,
+          and a strong focus on improving user experience.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#contact" class="btn btn-main">
+            <span>📧</span>
+            <span>Contact Me</span>
+          </a>
+
+          <a href="https://github.com/mulers85" target="_blank" class="btn btn-secondary">
+            <span>🧠</span>
+            <span>View GitHub</span>
+          </a>
+
+          <a href="Mulugeta_Tesfay_Beiene_Resume.pdf" target="_blank" class="btn btn-accent">
+            <span>📄</span>
+            <span>Download CV</span>
+          </a>
         </div>
       </div>
     </section>
 
     <!-- ABOUT -->
-    <section class="section" id="about">
+    <section id="about" class="section">
       <h2 class="section-title">About Me</h2>
       <p class="section-subtitle">A short summary of who I am as a QA tester.</p>
-      <div class="about-text">
-        <p>
-          I am a manual QA tester focused on finding issues that really matter for users.
-          I enjoy writing structured test cases, reporting clear bugs, and learning new tools.
-        </p>
-        <p>
-          My goal is to grow into QA automation after building a strong manual testing foundation.
-        </p>
-      </div>
+
+      <p>
+        I am a manual QA tester focused on finding issues that really matter for users.  
+        I enjoy writing structured test cases, reporting clear bugs, and learning new tools.
+      </p>
+      <p>
+        My goal is to grow into QA automation after building a strong manual testing foundation.
+      </p>
     </section>
 
     <!-- SKILLS -->
-    <section class="section" id="skills">
+    <section id="skills" class="section">
       <h2 class="section-title">Skills</h2>
       <p class="section-subtitle">What I bring to a QA team.</p>
 
@@ -589,208 +582,161 @@
           <h3>Testing &amp; QA</h3>
           <ul>
             <li>Designing and executing manual test cases from requirements or user stories.</li>
-            <li>Functional, UI, regression, and negative testing.</li>
-            <li>Writing clear bug reports with steps, expected vs actual, and evidence.</li>
+            <li>Functional, regression, and negative testing.</li>
+            <li>Exploratory testing with clear notes and screenshots.</li>
+            <li>Writing simple SQL checks for data validation.</li>
           </ul>
         </div>
 
         <div class="skill-card">
-          <h3>Tools &amp; Practices</h3>
+          <h3>Tools &amp; Practice</h3>
           <ul>
-            <li>Jira &amp; Xray – test cases, runs, and bug tracking.</li>
-            <li>GitHub – practice repos for test cases and bug reports.</li>
-            <li>Basic API testing with Postman and SQL checks for data.</li>
-          </ul>
-        </div>
-
-        <div class="skill-card">
-          <h3>Soft Skills</h3>
-          <ul>
-            <li>Strong attention to detail and curiosity to break things.</li>
-            <li>Clear written communication in English, Hebrew, Tigrigna, and Amharic.</li>
-            <li>Teamwork, reliability, and discipline from years of work experience.</li>
+            <li>Jira &amp; Xray – managing test cases and bugs.</li>
+            <li>GitHub – tracking practice projects and QA documents.</li>
+            <li>Postman (basic) – simple API checks.</li>
+            <li>SQL (basic) – verifying values in the database.</li>
           </ul>
         </div>
       </div>
     </section>
 
-    <!-- PRACTICE / PORTFOLIO -->
-    <section class="section" id="practice">
-      <h2 class="section-title">Practice &amp; Sample Work</h2>
-      <p class="section-subtitle">How I practice QA and document my work.</p>
+    <!-- PRACTICE / SAMPLES -->
+    <section id="practice" class="section">
+      <h2 class="section-title">Practice</h2>
+      <p class="section-subtitle">Hands-on QA documents I created while learning.</p>
 
-      <div class="practice-grid">
-        <div class="practice-card">
-          <div class="practice-title">Discord App – Test Design</div>
-          <div class="practice-meta">STD, STR, and test tree examples.</div>
-          <ul>
-            <li>Defined test scope and risks in a Software Test Description (STD).</li>
-            <li>Created an STR and functional breakdown for key Discord flows.</li>
-            <li>Organized test ideas in a clear, readable structure.</li>
-          </ul>
-          <div class="tags">
-            <span class="tag">Test Design</span>
-            <span class="tag">STD</span>
-            <span class="tag">STR</span>
-          </div>
-        </div>
+      <p>
+        Below are real practice documents I wrote to learn structured testing.
+        They are hosted as PDF files in this portfolio.
+      </p>
 
-        <div class="practice-card">
-          <div class="practice-title">Bug Reports – Real Apps</div>
-          <div class="practice-meta">Discord &amp; other apps.</div>
-          <ul>
-            <li>Reported bugs with clear reproduction steps and evidence.</li>
-            <li>Used expected vs actual behaviour to make reports easy to read.</li>
-            <li>Practiced English and Hebrew documentation.</li>
-          </ul>
-          <div class="tags">
-            <span class="tag">Bug Reporting</span>
-            <span class="tag">Discord</span>
-            <span class="tag">Hebrew</span>
-          </div>
-        </div>
-      </div>
+      <div class="samples-list" style="margin-top:0.9rem;">
+        <a href="Bug Report 1.pdf" target="_blank">
+          <span class="icon">🐞</span>
+          <span>Bug Report – Discord App (English, PDF)</span>
+        </a>
 
-      <!-- PDF LINKS -->
-      <div class="sample-links">
-        <div class="sample-link-item">
-          <span>🐞</span>
-          <a href="Bug Report 1.pdf" target="_blank">Bug Report — Discord App (PDF)</a>
-        </div>
-        <div class="sample-link-item">
-          <span>🐞</span>
-          <a href="Mulugeta Bug Report.pdf" target="_blank">Bug Report — App Example (PDF)</a>
-        </div>
-        <div class="sample-link-item">
-          <span>📄</span>
-          <a href="(STD)Software Test Description Template for ....pdf" target="_blank">
-            STD — Software Test Description (PDF)
-          </a>
-        </div>
-        <div class="sample-link-item">
-          <span>🌳</span>
-          <a href="functional-breakdown-discord.pdf" target="_blank">
-            Test Tree / Functional Breakdown — Discord (PDF)
-          </a>
-        </div>
-        <div class="sample-link-item">
-          <span>📑</span>
-          <a href="STR.pdf" target="_blank">STR — Discord App (PDF)</a>
-        </div>
-        <div class="sample-link-item">
-          <span>📝</span>
-          <a href="Copy of מסמך ללא שם.pdf" target="_blank">Hebrew QA Document (PDF)</a>
-        </div>
+        <a href="Mulugeta Bug Report.pdf" target="_blank">
+          <span class="icon">🐞</span>
+          <span>Bug Report – Hebrew (PDF)</span>
+        </a>
+
+        <a href="STR.pdf" target="_blank">
+          <span class="icon">🌳</span>
+          <span>Test Tree – Discord App (PDF)</span>
+        </a>
+
+        <a href="functional-breakdown-discord.pdf" target="_blank">
+          <span class="icon">📚</span>
+          <span>Functional Breakdown – Discord App (PDF)</span>
+        </a>
+
+        <a href="(STD)Software Test Description Template for ....pdf" target="_blank">
+          <span class="icon">🧪</span>
+          <span>Software Test Description Template (PDF)</span>
+        </a>
+
+        <a href="Copy of דו מסמך ללא שם.pdf" target="_blank">
+          <span class="icon">📝</span>
+          <span>Additional Hebrew QA Document (PDF)</span>
+        </a>
       </div>
     </section>
 
     <!-- EXPERIENCE -->
-    <section class="section" id="experience">
+    <section id="experience" class="section">
       <h2 class="section-title">Experience</h2>
       <p class="section-subtitle">How my background connects to QA.</p>
 
-      <ul class="timeline">
-        <li>
-          <div class="timeline-range">2024 – Now</div>
-          <div class="timeline-title">QA Learning &amp; Practice</div>
-          <p class="timeline-text">
-            Practicing manual QA testing, writing test cases, testing flows, and reporting bugs
-            using Jira &amp; GitHub.
-          </p>
-        </li>
-        <li>
-          <div class="timeline-range">Before QA</div>
-          <div class="timeline-title">Head of Butcher Department</div>
-          <p class="timeline-text">
-            Managed quality, workflow, and operations in a supermarket department. I now use that
-            discipline, teamwork, and attention to detail in QA work.
-          </p>
-        </li>
-      </ul>
-    </section>
-
-    <!-- CONTACT -->
-    <section class="section" id="contact">
-      <h2 class="section-title">Contact</h2>
-      <p class="section-subtitle">If you’d like to talk about QA opportunities or projects.</p>
-
-      <div class="contact-list">
-        <div class="contact-row">
-          <span class="contact-label">Email:&nbsp;</span>
-          <a href="mailto:mulers85@gmail.com">mulers85@gmail.com</a>
-        </div>
-        <div class="contact-row">
-          <span class="contact-label">GitHub:&nbsp;</span>
-          <a href="https://github.com/mulers85" target="_blank">github.com/mulers85</a>
+      <div class="timeline-item">
+        <div class="timeline-label">2024 – Now</div>
+        <div class="timeline-text">
+          Practicing manual QA testing, writing test cases, testing flows, and reporting bugs
+          using Jira &amp; GitHub.
         </div>
       </div>
 
-      <form class="contact-form" id="contactForm">
-        <div class="field">
-          <label for="name">Your Name</label>
-          <input id="name" type="text" placeholder="Your name" />
+      <div class="timeline-item" style="margin-top:1.1rem;">
+        <div class="timeline-label">Before QA</div>
+        <div class="timeline-text">
+          Head of Butcher Department — managed quality, workflow, and operations in a busy
+          supermarket. I now use that discipline and attention to detail in my QA work.
         </div>
-        <div class="field">
-          <label for="email">Your Email</label>
-          <input id="email" type="email" placeholder="you@example.com" />
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section">
+      <h2 class="section-title">Contact</h2>
+      <p class="section-subtitle">If you'd like to talk about QA opportunities or projects.</p>
+
+      <div class="contact-lines">
+        <p>Email:
+          <a href="mailto:mulers85@gmail.com">mulers85@gmail.com</a>
+        </p>
+        <p>GitHub:
+          <a href="https://github.com/mulers85" target="_blank">github.com/mulers85</a>
+        </p>
+      </div>
+
+      <form class="contact-form">
+        <div class="field-group">
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" placeholder="Your name" />
         </div>
-        <div class="field">
+
+        <div class="field-group">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="you@example.com" />
+        </div>
+
+        <div class="field-group">
           <label for="message">Message</label>
-          <textarea id="message" placeholder="Tell me about the role, project, or question..."></textarea>
+          <textarea id="message" name="message" placeholder="Write your message here"></textarea>
         </div>
-        <button type="submit" class="button button-primary send-button">
-          <span>📨</span><span>Send Message</span>
+
+        <button type="button" class="btn btn-main">
+          <span>📨</span>
+          <span>Send (demo only)</span>
         </button>
       </form>
     </section>
 
+    <!-- FOOTER -->
     <footer class="footer">
-      © 2025 Mulugeta Tesfay Beiene — Junior QA Tester
+      <span>© 2025 Mulugeta Tesfay Beiene — Junior QA Tester</span>
     </footer>
   </div>
 
   <script>
-    // Theme toggle
-    const themeToggle = document.getElementById("themeToggle");
-    const themeIcon = document.getElementById("themeIcon");
+    // Theme toggle with localStorage
+    const toggleBtn = document.getElementById("themeToggle");
+    const icon = document.getElementById("themeIcon");
+    const label = document.getElementById("themeLabel");
 
     function setTheme(mode) {
       if (mode === "light") {
         document.body.classList.add("light");
-        themeIcon.textContent = "☀️";
-        localStorage.setItem("theme", "light");
+        icon.textContent = "☀️";
+        label.textContent = "Light";
       } else {
         document.body.classList.remove("light");
-        themeIcon.textContent = "🌙";
-        localStorage.setItem("theme", "dark");
+        icon.textContent = "🌙";
+        label.textContent = "Dark";
       }
+      localStorage.setItem("mtb-theme", mode);
     }
 
-    const savedTheme = localStorage.getItem("theme") || "dark";
-    setTheme(savedTheme);
+    const saved = localStorage.getItem("mtb-theme");
+    if (saved === "light") {
+      setTheme("light");
+    } else {
+      setTheme("dark");
+    }
 
-    themeToggle.addEventListener("click", () => {
-      const isLight = document.body.classList.contains("light");
-      setTheme(isLight ? "dark" : "light");
-    });
-
-    // Contact form -> mailto
-    document.getElementById("contactForm").addEventListener("submit", function (e) {
-      e.preventDefault();
-      const name = document.getElementById("name").value.trim();
-      const email = document.getElementById("email").value.trim();
-      const message = document.getElementById("message").value.trim();
-
-      let body = "";
-      if (name) body += "Name: " + name + "%0D%0A";
-      if (email) body += "Email: " + email + "%0D%0A%0D%0A";
-      if (message) body += message;
-
-      const mailto = "mailto:mulers85@gmail.com"
-        + "?subject=" + encodeURIComponent("QA Portfolio Contact")
-        + "&body=" + body;
-
-      window.location.href = mailto;
+    toggleBtn.addEventListener("click", () => {
+      const now = document.body.classList.contains("light") ? "dark" : "light";
+      setTheme(now);
     });
   </script>
 </body>
